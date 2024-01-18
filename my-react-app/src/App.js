@@ -1,17 +1,11 @@
 import logo from "./assets/logo.jpg";
 import "./App.css";
+import WorthifyHome from "./components/WorthifyHome"; // Import WorthifyHome component
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Worthify</h1>
-        <p>
-          Welcome to Worthify! Your solution for valuing and recycling used
-          cars.
-        </p>
-      </header>
+      <WorthifyHome />
     </div>
   );
 }
