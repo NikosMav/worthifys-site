@@ -2,13 +2,18 @@ import React, { useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 
-const WorthifyHome = () => {
+const WorthifyFormPage = () => {
   useEffect(() => {
     window.Webflow && window.Webflow.destroy();
     window.Webflow && window.Webflow.ready();
     window.Webflow && window.Webflow.require("ix2").init();
     document.dispatchEvent(new Event("readystatechange"));
   });
+
+  // html node
+  const html = document.getElementsByTagName("html")[0];
+  html.setAttribute("data-wf-page", "65a4292a06a5231e6e3e7670");
+  html.setAttribute("data-wf-site", "65a4292906a5231e6e3e760e");
 
   return (
     <div className="bg-neutral-800">
@@ -356,4 +361,4 @@ const WorthifyHome = () => {
   );
 };
 
-export default WorthifyHome;
+export default WorthifyFormPage;

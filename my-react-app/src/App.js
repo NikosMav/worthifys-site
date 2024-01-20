@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import WorthifyHome from "./components/WorthifyHome";
+import WorthifyHomePage from "./components/WorthifyHomePage";
 import WorthifyFormPage from "./components/WorthifyFormPage";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<WorthifyHome />} />
+        <Route path="/" element={<WorthifyHomePage />} />
         <Route path="/form-page" element={<WorthifyFormPage />} />
       </Routes>
     </Router>

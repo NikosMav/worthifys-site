@@ -3,13 +3,18 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 
-const WorthifyHome = () => {
+const WorthifyHomePage = () => {
   useEffect(() => {
     window.Webflow && window.Webflow.destroy();
     window.Webflow && window.Webflow.ready();
     window.Webflow && window.Webflow.require("ix2").init();
     document.dispatchEvent(new Event("readystatechange"));
   });
+
+  // html node
+  const html = document.getElementsByTagName("html")[0];
+  html.setAttribute("data-wf-page", "65a4292a06a5231e6e3e76a1");
+  html.setAttribute("data-wf-site", "65a4292906a5231e6e3e760e");
 
   const navigate = useNavigate();
   const redirectToForm = () => {
@@ -358,4 +363,4 @@ const WorthifyHome = () => {
   );
 };
 
-export default WorthifyHome;
+export default WorthifyHomePage;
