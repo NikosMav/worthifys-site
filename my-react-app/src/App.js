@@ -1,14 +1,14 @@
-import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import "./App.css";
-import WorthifyHome from "./components/WorthifyHome"; // Import WorthifyHome component
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import WorthifyHome from "./components/WorthifyHome";
+import WorthifyFormPage from "./components/WorthifyFormPage";
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <WorthifyHome />
-      </div>
+      <Routes>
+        <Route path="/" element={<WorthifyHome />} />
+        <Route path="/form-page" element={<WorthifyFormPage />} />
+      </Routes>
     </Router>
   );
 }

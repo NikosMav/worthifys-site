@@ -1,25 +1,20 @@
 import React, { useEffect } from "react";
-import $ from "jquery"; // Import jQuery
 import Header from "./Header";
 import Footer from "./Footer";
+import { useNavigate } from "react-router-dom";
 
 const WorthifyHome = () => {
-  // useEffect(() => {
-  //   // Load external scripts after the component has mounted
-  //   const webflowScript = document.createElement("script");
-  //   webflowScript.src = "../js/webflow.js"; // Specify the script source
-  //   webflowScript.type = "text/javascript";
-  //   webflowScript.async = true;
-  //   document.body.appendChild(webflowScript);
+  useEffect(() => {
+    window.Webflow && window.Webflow.destroy();
+    window.Webflow && window.Webflow.ready();
+    window.Webflow && window.Webflow.require("ix2").init();
+    document.dispatchEvent(new Event("readystatechange"));
+  });
 
-  //   // Ensure jQuery is available for your scripts
-  //   window.$ = $;
-
-  //   // Clean up the script when the component unmounts
-  //   return () => {
-  //     document.body.removeChild(webflowScript);
-  //   };
-  // }, []);
+  const navigate = useNavigate();
+  const redirectToForm = () => {
+    navigate("/form-page");
+  };
 
   return (
     <div className="bg-neutral-800">
@@ -59,73 +54,6 @@ const WorthifyHome = () => {
                   let Worthify reveal its true market worth. Start now and make
                   an informed decision about your vehicle's future.
                 </p>
-              </div>
-              <div
-                data-w-id="58ed6e0c-7961-e5e6-bc1d-6ae6c94a1d95"
-                style={{
-                  WebkitTransform:
-                    "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
-                  MozTransform:
-                    "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
-                  msTransform:
-                    "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
-                  transform:
-                    "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
-                  opacity: 0,
-                }}
-                className="card"
-              >
-                <div className="w-form">
-                  <form
-                    id="email-form"
-                    name="email-form"
-                    data-name="Email Form"
-                    method="get"
-                    data-wf-page-id="65a4292a06a5231e6e3e76a1"
-                    data-wf-element-id="d5a43df2-b20a-9ebc-4c22-0c4cd3b60235"
-                  >
-                    <label htmlFor="name">Name</label>
-                    <input
-                      className="w-input"
-                      maxLength={256}
-                      name="name"
-                      data-name="Name"
-                      placeholder=""
-                      type="text"
-                      id="name"
-                    />
-                    <label htmlFor="email">Email Address</label>
-                    <input
-                      className="w-input"
-                      maxLength={256}
-                      name="email-2"
-                      data-name="Email 2"
-                      placeholder=""
-                      type="email"
-                      id="email-2"
-                      required=""
-                    />
-                    <input
-                      type="submit"
-                      data-wait="Please wait..."
-                      className="w-button"
-                      defaultValue="Submit"
-                    />
-                  </form>
-                  <div className="w-form-done">
-                    <div>Thank you! Your submission has been received!</div>
-                  </div>
-                  <div className="w-form-fail">
-                    <div>
-                      Oops! Something went wrong while submitting the form.
-                    </div>
-                  </div>
-                </div>
-                <div className="button-primary-gradient _2-buttons">
-                  <a href="pricing.html" className="button-primary w-button">
-                    Fill out form
-                  </a>
-                </div>
               </div>
               <div
                 data-w-id="afb9b871-31e8-c258-d227-e3d4471c65e1"
@@ -190,6 +118,7 @@ const WorthifyHome = () => {
                           data-wait="Please wait..."
                           className="button-primary small w-button"
                           defaultValue="Evaluate your Car"
+                          onClick={redirectToForm} // Add the onClick event here
                         />
                       </div>
                     </form>
