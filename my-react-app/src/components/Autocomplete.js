@@ -23,25 +23,6 @@ const CustomAutocomplete = styled(Autocomplete)({
   [`& .${autocompleteClasses.popupIndicator}`]: {
     color: "white",
   },
-  // Style the paper component used for the dropdown
-  [`& .${autocompleteClasses.listbox}`]: {
-    // Style the listbox
-    padding: 0, // Remove padding if desired
-    backgroundColor: "#3a3747", // Background color for the dropdown
-    "& .MuiAutocomplete-option": {
-      // Style each option
-      color: "white", // Text color for each option
-      "&:hover": {
-        backgroundColor: "#1d1a27", // A shade for the hover state
-      },
-      '&[data-focus="true"]': {
-        backgroundColor: "#302c3f", // A shade for the focused state
-      },
-      '&[aria-selected="true"]': {
-        backgroundColor: "#1d1a27", // A shade for the selected state
-      },
-    },
-  },
   "& .MuiAutocomplete-input": {
     color: "white", // Ensuring input text is white
   },
@@ -93,7 +74,12 @@ const CustomTextField = styled(TextField)({
   // More styles for the text field if needed
 });
 
-export default function GroupedAutocomplete({ optionsData, label }) {
+export default function GroupedAutocomplete({
+  optionsData,
+  label,
+  onChange,
+  disabled,
+}) {
   const options = optionsData.map((option) => {
     const firstLetter = option.title[0].toUpperCase();
     return {
@@ -101,6 +87,17 @@ export default function GroupedAutocomplete({ optionsData, label }) {
       ...option,
     };
   });
+
+  const handleChange = (event, value) => {
+    if (onChange) {
+      onChange(event, value);
+    }
+  };
+
+  // Add a custom comparison function
+  const isOptionEqualToValue = (option, value) => {
+    return option.title === value.title;
+  };
 
   return (
     <CustomAutocomplete
@@ -110,6 +107,7 @@ export default function GroupedAutocomplete({ optionsData, label }) {
       )}
       groupBy={(option) => option.firstLetter}
       getOptionLabel={(option) => option.title}
+      isOptionEqualToValue={isOptionEqualToValue}
       renderInput={(params) => (
         <CustomTextField
           {...params}
@@ -119,6 +117,8 @@ export default function GroupedAutocomplete({ optionsData, label }) {
           }}
         />
       )}
+      onChange={handleChange} // Use internal handleChange
+      disabled={disabled}
     />
   );
 }

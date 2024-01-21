@@ -1,29 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 import GroupedAutocomplete from "./Autocomplete";
+import carData from "../carData.json";
 
-// Define car brands and models
-const carBrands = [
-  { title: "Audi", country: "Germany" },
-  { title: "BMW", country: "Germany" },
-  { title: "Ferrari", country: "Italy" },
-  // Add more car brands here
-];
-
-const carModels = [
-  { title: "A3", model: "A3" },
-  // { brand: "Audi", model: "A3" },
-  // { brand: "Audi", model: "A4" },
-  // { brand: "Audi", model: "Q5" },
-  // { brand: "BMW", model: "X3" },
-  // { brand: "BMW", model: "X5" },
-  // { brand: "Ferrari", model: "F458" },
-  // // Add more car models here
-];
+const carBrands = carData.carBrands;
+const carModels = carData.carModels;
 
 const WorthifyHomePage = () => {
+  // webflow.js
   useEffect(() => {
     window.Webflow && window.Webflow.destroy();
     window.Webflow && window.Webflow.ready();
@@ -36,10 +22,21 @@ const WorthifyHomePage = () => {
   html.setAttribute("data-wf-page", "65a4292a06a5231e6e3e76a1");
   html.setAttribute("data-wf-site", "65a4292906a5231e6e3e760e");
 
+  // Navigation to form page
   const navigate = useNavigate();
   const redirectToForm = () => {
     navigate("/form-page");
   };
+
+  const [selectedBrand, setSelectedBrand] = useState("");
+  const handleBrandChange = (event, value) => {
+    event.preventDefault(); // Prevent default if it's a submit event
+    setSelectedBrand(value ? value.title : ""); // Set the selected brand title or reset
+  };
+  // Filter models based on the selected brand
+  const filteredModels = carModels.filter(
+    (model) => model.brand === selectedBrand
+  );
 
   return (
     <div className="bg-neutral-800">
@@ -109,6 +106,8 @@ const WorthifyHomePage = () => {
                         <GroupedAutocomplete
                           optionsData={carBrands}
                           label="Select Brand"
+                          onChange={handleBrandChange} // Add onChange handler
+                          value={selectedBrand} // Pass the selected value
                         />
                       </div>
                       <div
@@ -122,8 +121,9 @@ const WorthifyHomePage = () => {
                           Model
                         </label>
                         <GroupedAutocomplete
-                          optionsData={carModels}
+                          optionsData={filteredModels}
                           label="Select Model"
+                          disabled={!selectedBrand} // Disable if no brand is selected
                         />
                       </div>
                       <div

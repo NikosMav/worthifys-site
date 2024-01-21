@@ -1,0 +1,31 @@
+{
+    "carBrands": [
+        { "title": "Audi" },
+        { "title": "BMW" },
+        { "title": "Ferrari" },
+        { "title": "Ford" },
+        { "title": "Honda" },
+        { "title": "Mercedes-Benz" },
+        { "title": "Toyota" },
+        { "title": "Volkswagen" }
+    ],
+    "carModels": [
+        { "title": "A3", "brand": "Audi" },
+        { "title": "A4", "brand": "Audi" },
+        { "title": "X5", "brand": "BMW" },
+        { "title": "M3", "brand": "BMW" },
+        { "title": "488", "brand": "Ferrari" },
+        { "title": "F8", "brand": "Ferrari" },
+        { "title": "Fiesta", "brand": "Ford" },
+        { "title": "Focus", "brand": "Ford" },
+        { "title": "Civic", "brand": "Honda" },
+        { "title": "Accord", "brand": "Honda" },
+        { "title": "C-Class", "brand": "Mercedes-Benz" },
+        { "title": "E-Class", "brand": "Mercedes-Benz" },
+        { "title": "Camry", "brand": "Toyota" },
+        { "title": "Corolla", "brand": "Toyota" },
+        { "title": "Golf", "brand": "Volkswagen" },
+        { "title": "Polo", "brand": "Volkswagen" }
+    ]
+  }
+  
