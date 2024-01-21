@@ -2,6 +2,26 @@ import React, { useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
+import GroupedAutocomplete from "./Autocomplete";
+
+// Define car brands and models
+const carBrands = [
+  { title: "Audi", country: "Germany" },
+  { title: "BMW", country: "Germany" },
+  { title: "Ferrari", country: "Italy" },
+  // Add more car brands here
+];
+
+const carModels = [
+  { title: "A3", model: "A3" },
+  // { brand: "Audi", model: "A3" },
+  // { brand: "Audi", model: "A4" },
+  // { brand: "Audi", model: "Q5" },
+  // { brand: "BMW", model: "X3" },
+  // { brand: "BMW", model: "X5" },
+  // { brand: "Ferrari", model: "F458" },
+  // // Add more car models here
+];
 
 const WorthifyHomePage = () => {
   useEffect(() => {
@@ -80,39 +100,31 @@ const WorthifyHomePage = () => {
                         id="w-node-afb9b871-31e8-c258-d227-e3d4471c65f1-6e3e76a1"
                         className="input-wrapper"
                       >
-                        <label htmlFor="field" className="field-label">
+                        <label
+                          htmlFor="brand-autocomplete"
+                          className="field-label"
+                        >
                           Brand
                         </label>
-                        <select
-                          id="field"
-                          name="field"
-                          data-name="Field"
-                          className="brand-dropdown w-select"
-                        >
-                          <option value="">Select one...</option>
-                          <option value="First">First choice</option>
-                          <option value="Second">Second choice</option>
-                          <option value="Third">Third choice</option>
-                        </select>
+                        <GroupedAutocomplete
+                          optionsData={carBrands}
+                          label="Select Brand"
+                        />
                       </div>
                       <div
                         id="w-node-_71352fe0-859c-9f60-a10d-12645b34fb89-6e3e76a1"
                         className="input-wrapper"
                       >
-                        <label htmlFor="Company-2" className="field-label">
+                        <label
+                          htmlFor="model-autocomplete"
+                          className="field-label"
+                        >
                           Model
                         </label>
-                        <select
-                          id="field-2"
-                          name="field-2"
-                          data-name="Field 2"
-                          className="brand-dropdown w-select"
-                        >
-                          <option value="">Select one...</option>
-                          <option value="First">First choice</option>
-                          <option value="Second">Second choice</option>
-                          <option value="Third">Third choice</option>
-                        </select>
+                        <GroupedAutocomplete
+                          optionsData={carModels}
+                          label="Select Model"
+                        />
                       </div>
                       <div
                         id="w-node-afb9b871-31e8-c258-d227-e3d4471c65f9-6e3e76a1"
