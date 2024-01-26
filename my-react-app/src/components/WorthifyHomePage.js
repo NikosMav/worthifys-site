@@ -15,7 +15,7 @@ const WorthifyHomePage = () => {
     window.Webflow && window.Webflow.ready();
     window.Webflow && window.Webflow.require("ix2").init();
     document.dispatchEvent(new Event("readystatechange"));
-  });
+  }, []);
 
   // html node
   const html = document.getElementsByTagName("html")[0];
@@ -28,15 +28,59 @@ const WorthifyHomePage = () => {
     navigate("/form-page");
   };
 
+  // Brands and Models
   const [selectedBrand, setSelectedBrand] = useState("");
+  const [selectedModel, setSelectedModel] = useState("");
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [submitAttempted, setSubmitAttempted] = useState(false);
+
   const handleBrandChange = (event, value) => {
     event.preventDefault(); // Prevent default if it's a submit event
     setSelectedBrand(value ? value.title : ""); // Set the selected brand title or reset
+    setSelectedModel(""); // Reset the selected model when brand changes
+    if (selectedBrand === "") {
+      setSubmitAttempted(false);
+    }
   };
+
+  const handleModelChange = (event, value) => {
+    if (value && value.title) {
+      setSelectedModel(value.title); // Set the model
+    } else {
+      setSelectedModel(""); // Reset the model state
+      setSubmitAttempted(false);
+    }
+  };
+
   // Filter models based on the selected brand
   const filteredModels = carModels.filter(
     (model) => model.brand === selectedBrand
   );
+
+  useEffect(() => {
+    setSelectedModel(""); // Reset model when brand changes
+  }, [selectedBrand]); // Dependency array with selectedBrand
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+    setSubmitAttempted(true); // Indicate that a submit attempt was made
+    if (!isFormValid) {
+      // setSubmitAttempted(false);
+      // Form is not valid, error message will be shown
+      // setSubmitAttempted(false); // Indicate that submission
+      return;
+    }
+
+    // Proceed with form submission logic (e.g., API call)
+  };
+
+  useEffect(() => {
+    // Check if both brand and model are selected
+    setIsFormValid(
+      selectedBrand !== "" && selectedModel !== "" //||
+      //(selectedBrand === "" && selectedModel === "")
+    );
+  }, [selectedBrand, selectedModel]);
 
   return (
     <div className="bg-neutral-800">
@@ -73,8 +117,7 @@ const WorthifyHomePage = () => {
                   className="paragraph-large home-hero small"
                 >
                   Fill out our simple form with your car's specifications and
-                  let Worthify reveal its true market worth. Start now and make
-                  an informed decision about your vehicle's future.
+                  let Worthify reveal its true market worth.
                 </p>
               </div>
               <div
@@ -92,6 +135,7 @@ const WorthifyHomePage = () => {
                       className="card-contact-form small"
                       data-wf-page-id="65a4292a06a5231e6e3e76a1"
                       data-wf-element-id="afb9b871-31e8-c258-d227-e3d4471c65e4"
+                      onSubmit={handleFormSubmit} // Add the onSubmit event here
                     >
                       <div
                         id="w-node-afb9b871-31e8-c258-d227-e3d4471c65f1-6e3e76a1"
@@ -121,8 +165,11 @@ const WorthifyHomePage = () => {
                           Model
                         </label>
                         <GroupedAutocomplete
+                          key={selectedBrand} // Add key to force re-render when brand changes
                           optionsData={filteredModels}
                           label="Select Model"
+                          onChange={handleModelChange} // Handle model changes
+                          value={selectedModel} // Pass the selected model value
                           disabled={!selectedBrand} // Disable if no brand is selected
                         />
                       </div>
@@ -135,19 +182,14 @@ const WorthifyHomePage = () => {
                           data-wait="Please wait..."
                           className="button-primary small w-button"
                           defaultValue="Evaluate your Car"
-                          onClick={redirectToForm} // Add the onClick event here
                         />
                       </div>
+                      {!isFormValid && submitAttempted && (
+                        <div className="error-message">
+                          Please select both brand and model.
+                        </div>
+                      )}
                     </form>
-                    <div className="success-message w-form-done">
-                      <div>
-                        Your message has been submitted. <br />
-                        We will get back to you within 24-48 hours.
-                      </div>
-                    </div>
-                    <div className="error-message w-form-fail">
-                      <div>Oops! Something went wrong.</div>
-                    </div>
                   </div>
                 </div>
                 <div className="card-contact-form-gradient-blur" />
@@ -312,7 +354,7 @@ const WorthifyHomePage = () => {
                 <img
                   src="/images/image-1-home-hero-dark-template.svg"
                   loading="eager"
-                  alt="Investor Image - Dark X Webflow Template"
+                  alt=""
                   className="image home-hero-1"
                 />
                 <img

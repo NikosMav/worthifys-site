@@ -5234,10 +5234,12 @@ figcaption {
   text-align: center;
   background-color: #ff4b4e;
   border-radius: 12px;
-  margin-top: 32px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  margin-right: auto;  /* Center horizontally */
+  margin-left: auto;   /* Center horizontally */
+  padding: 20px 10px;  /* Top and bottom padding of 20px, left and right padding of 10px */
   font-weight: 600;
+  width: 100%;         /* Occupy full width */
+  grid-column: span 2;  /* Span across two columns */
 }
 
 .text-no-wrap {

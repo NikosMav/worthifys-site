@@ -14,7 +14,7 @@ const CustomAutocomplete = styled(Autocomplete)({
       backgroundColor: "#1d1a27",
     },
     "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-      borderColor: "indigo",
+      borderColor: "white",
     },
   },
   [`& .${autocompleteClasses.clearIndicator}`]: {
@@ -54,7 +54,7 @@ const CustomTextField = styled(TextField)({
       borderColor: "white",
     },
     "&:hover fieldset": {
-      borderColor: "indigo",
+      borderColor: "gray",
     },
     "&.Mui-focused fieldset": {
       borderColor: "white",

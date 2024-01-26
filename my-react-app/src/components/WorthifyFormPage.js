@@ -1,8 +1,46 @@
 import React, { useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import GroupedAutocomplete from "./Autocomplete";
+import carData from "../carData.json";
 
+const carBrands = carData.carBrands;
+const carModels = carData.carModels;
+//const carDisplacement = carData.carDisplacement;
+let brand = "*";
+let model = "*";
+let displacement = "*";
+let category = "*";
+let fuelType = "*";
+let transmission = "*";
+let doors = "*";
 const WorthifyFormPage = () => {
+  function handleChange() {
+    var sqlCall =
+      "SELECT " +
+      wanted +
+      " FROM db(?) WHERE " +
+      "Brand = " +
+      brand +
+      " AND Model = " +
+      model +
+      " AND Displacement = " +
+      displacement +
+      " AND Category = " +
+      category +
+      " AND FuelType = " +
+      fuelType +
+      " AND Transmission = " +
+      transmission +
+      " AND Doors = " +
+      doors;
+
+    // do sql query
+
+    //get results from db
+
+    // update the fields accordingly
+  }
   useEffect(() => {
     window.Webflow && window.Webflow.destroy();
     window.Webflow && window.Webflow.ready();
@@ -63,25 +101,24 @@ const WorthifyFormPage = () => {
                         className="card-contact-form form-2"
                         data-wf-page-id="65a4292a06a5231e6e3e7670"
                         data-wf-element-id="13235370-6615-b8f7-1966-ee3fe42ff50b"
+                        //onSubmit={handleFormSubmit}
                       >
                         <div
                           id="w-node-_14d1cde4-4d4a-f24b-af06-6c985505dc06-6e3e7670"
                           className="input-wrapper form-2"
                         >
-                          <label htmlFor="field" className="field-label form-2">
+                          <label
+                            htmlFor="brand-autocomplete"
+                            className="field-label form-2"
+                          >
                             Brand
                           </label>
-                          <select
-                            id="field"
-                            name="field"
-                            data-name="Field"
-                            className="brand-dropdown w-select"
-                          >
-                            <option value="">Select one...</option>
-                            <option value="First">First choice</option>
-                            <option value="Second">Second choice</option>
-                            <option value="Third">Third choice</option>
-                          </select>
+                          <GroupedAutocomplete
+                            optionsData={carBrands}
+                            label="Select Brand"
+                            //onChange={handleBrandChange} // Add onChange handler
+                            //value={selectedBrand} // Pass the selected value
+                          />
                         </div>
                         <div
                           id="w-node-_42f4fb17-236a-4a2d-f114-8c80334f3f18-6e3e7670"
@@ -93,17 +130,10 @@ const WorthifyFormPage = () => {
                           >
                             Model
                           </label>
-                          <select
-                            id="field-8"
-                            name="field-8"
-                            data-name="Field 8"
-                            className="brand-dropdown w-select"
-                          >
-                            <option value="">Select one...</option>
-                            <option value="First">First choice</option>
-                            <option value="Second">Second choice</option>
-                            <option value="Third">Third choice</option>
-                          </select>
+                          <GroupedAutocomplete
+                            optionsData={carModels}
+                            label="Select Model"
+                          />
                         </div>
                         <div
                           id="w-node-_6e835cbb-7261-fc37-7737-e52fe94feff6-6e3e7670"
@@ -115,17 +145,10 @@ const WorthifyFormPage = () => {
                           >
                             Displacement
                           </label>
-                          <select
-                            id="Displacement"
-                            name="Displacement"
-                            data-name="Displacement"
-                            className="brand-dropdown w-select"
-                          >
-                            <option value="">Select one...</option>
-                            <option value="First">First choice</option>
-                            <option value="Second">Second choice</option>
-                            <option value="Third">Third choice</option>
-                          </select>
+                          {/* <GroupedAutocomplete
+                            //optionsData={carDisplacement}
+                            label="Select Displacement"
+                          /> */}
                         </div>
                         <div
                           id="w-node-f0332866-6a23-9c5b-508a-4a533ff01ee6-6e3e7670"
