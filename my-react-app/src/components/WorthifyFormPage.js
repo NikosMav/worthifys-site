@@ -1,57 +1,98 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import GroupedAutocomplete from "./Autocomplete";
+import PostalCodeField from "./PostalCodeField";
 import carData from "../carData.json";
 
-const carBrands = carData.carBrands;
-const carModels = carData.carModels;
-//const carDisplacement = carData.carDisplacement;
-let brand = "*";
-let model = "*";
-let displacement = "*";
-let category = "*";
-let fuelType = "*";
-let transmission = "*";
-let doors = "*";
+//             brand,model,displ,cat,fuel,trans,doors
+const array = ["*", "*", "*", "*", "*", "*", "*"];
+
 const WorthifyFormPage = () => {
-  function handleChange() {
-    var sqlCall =
-      "SELECT " +
-      wanted +
-      " FROM db(?) WHERE " +
-      "Brand = " +
-      brand +
-      " AND Model = " +
-      model +
-      " AND Displacement = " +
-      displacement +
-      " AND Category = " +
-      category +
-      " AND FuelType = " +
-      fuelType +
-      " AND Transmission = " +
-      transmission +
-      " AND Doors = " +
-      doors;
+  const [cars, setCars] = useState({
+    Brand: [],
+    Model: [],
+    //Variant: [],
+    Cubic: [],
+    Category: [],
+    Fuel: [],
+    Transmission: [],
+    Doors: [],
+  });
 
-    // do sql query
+  useEffect(() => {
+    console.log("YEAAAH BUDDY");
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "http://51.20.7.61:443/gottaCheckMyShite",
+          {
+            // URL of your Flask server
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ array: array }),
+          }
+        );
+        const data = await response.json();
+        // console.log(data)
+        setCars(data);
+        // console.log(cars.Cubic);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
 
-    //get results from db
+    fetchData();
+    console.log(cars);
+  }, []); //change the [] if you want to loop it somehow
 
-    // update the fields accordingly
-  }
+  const handleChange = (event, value, i) => {
+    if (value === null || value === undefined) {
+      value = { firstLetter: "*", title: "*" };
+    }
+    // console.log(value);
+    array[i] = value.title;
+    // console.log(array)
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://51.20.7.61:443/process", {
+          // URL of your Flask server
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ array: array }),
+        });
+        const data = await response.json();
+        // console.log(data)
+        setCars(data);
+        console.log(cars);
+        // console.log(cars.Cubic);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  };
+
   useEffect(() => {
     window.Webflow && window.Webflow.destroy();
     window.Webflow && window.Webflow.ready();
     window.Webflow && window.Webflow.require("ix2").init();
     document.dispatchEvent(new Event("readystatechange"));
-  });
+  }, []);
 
   // html node
   const html = document.getElementsByTagName("html")[0];
   html.setAttribute("data-wf-page", "65a4292a06a5231e6e3e7670");
   html.setAttribute("data-wf-site", "65a4292906a5231e6e3e760e");
+
+  const handlePostalCodeChange = (zipCode) => {
+    // Handle zip code value
+    console.log(zipCode);
+  };
 
   return (
     <div className="bg-neutral-800">
@@ -103,10 +144,7 @@ const WorthifyFormPage = () => {
                         data-wf-element-id="13235370-6615-b8f7-1966-ee3fe42ff50b"
                         //onSubmit={handleFormSubmit}
                       >
-                        <div
-                          id="w-node-_14d1cde4-4d4a-f24b-af06-6c985505dc06-6e3e7670"
-                          className="input-wrapper form-2"
-                        >
+                        <div>
                           <label
                             htmlFor="brand-autocomplete"
                             className="field-label form-2"
@@ -114,167 +152,170 @@ const WorthifyFormPage = () => {
                             Brand
                           </label>
                           <GroupedAutocomplete
-                            optionsData={carBrands}
+                            optionsData={cars.Brand}
                             label="Select Brand"
-                            //onChange={handleBrandChange} // Add onChange handler
-                            //value={selectedBrand} // Pass the selected value
+                            onChange={(event, value) =>
+                              handleChange(event, value, 0)
+                            } // Add onChange handler
                           />
                         </div>
-                        <div
-                          id="w-node-_42f4fb17-236a-4a2d-f114-8c80334f3f18-6e3e7670"
-                          className="input-wrapper form-2"
-                        >
+                        <div>
                           <label
-                            htmlFor="field-8"
+                            htmlFor="model-autocomplete"
                             className="field-label form-2"
                           >
                             Model
                           </label>
                           <GroupedAutocomplete
-                            optionsData={carModels}
+                            optionsData={cars.Model}
                             label="Select Model"
+                            onChange={(event, value) =>
+                              handleChange(event, value, 1)
+                            } // Add onChange handler
                           />
                         </div>
-                        <div
-                          id="w-node-_6e835cbb-7261-fc37-7737-e52fe94feff6-6e3e7670"
-                          className="input-wrapper form-2"
-                        >
+                        <div>
                           <label
-                            htmlFor="Displacement"
+                            htmlFor="variant-autocomplete"
                             className="field-label form-2"
                           >
-                            Displacement
+                            Variant
                           </label>
                           {/* <GroupedAutocomplete
-                            //optionsData={carDisplacement}
-                            label="Select Displacement"
+                            optionsData={cars.Variant}
+                            label="Select Variant"
+                            // onChange={(event, value) =>
+                            //   handleChange(event, value, 2)
+                            // } // Add onChange handler
                           /> */}
                         </div>
-                        <div
-                          id="w-node-f0332866-6a23-9c5b-508a-4a533ff01ee6-6e3e7670"
-                          className="input-wrapper form-2"
-                        >
-                          <label htmlFor="Date" className="field-label form-2">
+                        <div>
+                          <label
+                            htmlFor="engine-autocomplete"
+                            className="field-label form-2"
+                          >
+                            Engine
+                          </label>
+                          <GroupedAutocomplete
+                            optionsData={cars.Cubic}
+                            label="Select Engine"
+                            onChange={(event, value) =>
+                              handleChange(event, value, 2)
+                            } // Add onChange handler
+                          />
+                        </div>
+                        <div>
+                          <label
+                            htmlFor="date-autocomplete"
+                            className="field-label form-2"
+                          >
                             Date
                           </label>
-                          <select
-                            id="Date"
-                            name="Date"
-                            data-name="Date"
-                            className="brand-dropdown w-select"
-                          >
-                            <option value="">Select one...</option>
-                            <option value="First">First choice</option>
-                            <option value="Second">Second choice</option>
-                            <option value="Third">Third choice</option>
-                          </select>
+                          <GroupedAutocomplete
+                            optionsData={carData.Year}
+                            label="Select Date"
+                            // onChange={(event, value) => handleChange(event, value, 2)} // Add onChange handler
+                          />
                         </div>
-                        <div
-                          id="w-node-_2cdb8425-c167-9a3d-5df2-aa4d9575cd34-6e3e7670"
-                          className="input-wrapper form-2"
-                        >
+                        <div>
                           <label
-                            htmlFor="Category"
+                            htmlFor="category-autocomplete"
                             className="field-label form-2"
                           >
                             Category
                           </label>
-                          <select
-                            id="Category"
-                            name="Category"
-                            data-name="Category"
-                            className="brand-dropdown w-select"
-                          >
-                            <option value="">Select one...</option>
-                            <option value="First">First choice</option>
-                            <option value="Second">Second choice</option>
-                            <option value="Third">Third choice</option>
-                          </select>
+                          <GroupedAutocomplete
+                            optionsData={cars.Category}
+                            label="Select Category"
+                            onChange={(event, value) =>
+                              handleChange(event, value, 3)
+                            } // Add onChange handler
+                          />
                         </div>
-                        <div
-                          id="w-node-_122377a8-8267-b7af-f9cb-4f0c53a4aba7-6e3e7670"
-                          className="input-wrapper form-2"
-                        >
-                          <label htmlFor="Fuel" className="field-label form-2">
+                        <div>
+                          <label
+                            htmlFor="fuel-autocomplete"
+                            className="field-label form-2"
+                          >
                             Fuel
                           </label>
-                          <select
-                            id="Fuel"
-                            name="Fuel"
-                            data-name="Fuel"
-                            className="brand-dropdown w-select"
-                          >
-                            <option value="">Select one...</option>
-                            <option value="First">First choice</option>
-                            <option value="Second">Second choice</option>
-                            <option value="Third">Third choice</option>
-                          </select>
+                          <GroupedAutocomplete
+                            optionsData={cars.Fuel}
+                            label="Select Fuel"
+                            onChange={(event, value) =>
+                              handleChange(event, value, 4)
+                            } // Add onChange handler
+                          />
                         </div>
-                        <div
-                          id="w-node-_52a71856-fafc-88b1-e133-ad6c0cc1a51c-6e3e7670"
-                          className="input-wrapper form-2"
-                        >
+                        <div>
                           <label
-                            htmlFor="Transmission"
+                            htmlFor="transmission-autocomplete"
                             className="field-label form-2"
                           >
                             Transmission
                           </label>
-                          <select
-                            id="Transmission"
-                            name="Transmission"
-                            data-name="Transmission"
-                            className="brand-dropdown w-select"
-                          >
-                            <option value="">Select one...</option>
-                            <option value="First">First choice</option>
-                            <option value="Second">Second choice</option>
-                            <option value="Third">Third choice</option>
-                          </select>
+                          <GroupedAutocomplete
+                            optionsData={cars.Transmission}
+                            label="Select Transmission"
+                            onChange={(event, value) =>
+                              handleChange(event, value, 5)
+                            } // Add onChange handler
+                          />
                         </div>
-                        <div
-                          id="w-node-_4ccede12-f0a4-c373-7cc1-202709254143-6e3e7670"
-                          className="input-wrapper form-2"
-                        >
+                        <div>
                           <label
-                            htmlFor="Mileage"
-                            className="field-label form-2"
-                          >
-                            Mileage
-                          </label>
-                          <select
-                            id="Mileage"
-                            name="Mileage"
-                            data-name="Mileage"
-                            className="brand-dropdown w-select"
-                          >
-                            <option value="">Select one...</option>
-                            <option value="First">First choice</option>
-                            <option value="Second">Second choice</option>
-                            <option value="Third">Third choice</option>
-                          </select>
-                        </div>
-                        <div
-                          id="w-node-_1e46c983-60d6-514f-835b-06039ba11559-6e3e7670"
-                          className="input-wrapper form-2"
-                        >
-                          <label
-                            htmlFor="field-9"
+                            htmlFor="doors-autocomplete"
                             className="field-label form-2"
                           >
                             Doors
                           </label>
-                          <select
-                            id="field-7"
-                            name="field-7"
-                            data-name="Field 7"
-                            className="brand-dropdown w-select"
+                          <GroupedAutocomplete
+                            optionsData={cars.Doors}
+                            label="Select Doors"
+                            onChange={(event, value) =>
+                              handleChange(event, value, 6)
+                            } // Add onChange handler
+                          />
+                        </div>
+                        <div>
+                          <label
+                            htmlFor="mileage"
+                            className="field-label form-2"
                           >
-                            <option value="">Select one...</option>
-                            <option value="First">First choice</option>
-                            <option value="Second">Second choice</option>
-                            <option value="Third">Third choice</option>
-                          </select>
+                            Mileage
+                          </label>
+                          <input
+                            type="number"
+                            id="mileage"
+                            min="0"
+                            step="1000"
+                            pattern="\d*"
+                            name="Mileage"
+                            placeholder="Input Mileage"
+                            className="brand-dropdown w-select "
+                            style={{
+                              height: "61px",
+                              border: "1px solid white",
+                              padding: "15px",
+                              borderRadius: "10px",
+                              fontFamily: "Thicccboi",
+                            }}
+                          ></input>
+                        </div>
+                        <div>
+                          <label
+                            htmlFor="zipcode"
+                            className="field-label form-2"
+                          >
+                            Postal Code
+                          </label>
+                          <PostalCodeField onChange={handlePostalCodeChange} />
+                          <span
+                            id="zipcodeError"
+                            style={{ color: "red", display: "none" }}
+                          >
+                            Invalid Zip Code
+                          </span>
                         </div>
                         <div
                           id="w-node-_8ccbc011-c20c-04a7-65e7-f6cbb3c839d7-6e3e7670"

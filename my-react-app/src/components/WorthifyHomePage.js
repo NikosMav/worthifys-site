@@ -3,12 +3,82 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 import GroupedAutocomplete from "./Autocomplete";
-import carData from "../carData.json";
 
-const carBrands = carData.carBrands;
-const carModels = carData.carModels;
+const array = ["*", "*", "*", "*", "*", "*", "*"];
 
 const WorthifyHomePage = () => {
+  const [cars, setCars] = useState({
+    Brand: [],
+    Model: [],
+    Cubic: [],
+    Category: [],
+    Fuel: [],
+    Transmission: [],
+    Doors: [],
+  });
+
+  useEffect(() => {
+    console.log("YEAAAH BUDDY");
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "http://51.20.7.61:443/gottaCheckMyShite",
+          {
+            // URL of your Flask server
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ array: array }),
+          }
+        );
+        const data = await response.json();
+        // console.log(data)
+        setCars(data);
+        // console.log(cars.Cubic);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+    console.log(cars);
+  }, []); //change the [] if you want to loop it somehow
+
+  const handleChange = (event, value, i) => {
+    if (value === null || value === undefined) {
+      value = { firstLetter: "*", title: "*" };
+    }
+    // console.log(value);
+    array[i] = value.title;
+    // console.log(array)
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://51.20.7.61:443/process", {
+          // URL of your Flask server
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ array: array }),
+        });
+        const data = await response.json();
+        // console.log(data)
+        setCars(data);
+        console.log(cars);
+        // console.log(cars.Cubic);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+    if (i === 0) {
+      handleBrandChange(event, value);
+    } else {
+      handleModelChange(event, value);
+    }
+  };
+
   // webflow.js
   useEffect(() => {
     window.Webflow && window.Webflow.destroy();
@@ -22,10 +92,13 @@ const WorthifyHomePage = () => {
   html.setAttribute("data-wf-page", "65a4292a06a5231e6e3e76a1");
   html.setAttribute("data-wf-site", "65a4292906a5231e6e3e760e");
 
-  // Navigation to form page
+  // Navigation to different pages
   const navigate = useNavigate();
   const redirectToForm = () => {
     navigate("/form-page");
+  };
+  const redirectToChartPage = () => {
+    navigate("/chart-page");
   };
 
   // Brands and Models
@@ -51,11 +124,6 @@ const WorthifyHomePage = () => {
       setSubmitAttempted(false);
     }
   };
-
-  // Filter models based on the selected brand
-  const filteredModels = carModels.filter(
-    (model) => model.brand === selectedBrand
-  );
 
   useEffect(() => {
     setSelectedModel(""); // Reset model when brand changes
@@ -148,10 +216,12 @@ const WorthifyHomePage = () => {
                           Brand
                         </label>
                         <GroupedAutocomplete
-                          optionsData={carBrands}
+                          optionsData={cars.Brand}
                           label="Select Brand"
-                          onChange={handleBrandChange} // Add onChange handler
-                          value={selectedBrand} // Pass the selected value
+                          value={selectedBrand}
+                          onChange={(event, value) =>
+                            handleChange(event, value, 0)
+                          } // Add onChange handler
                         />
                       </div>
                       <div
@@ -165,12 +235,13 @@ const WorthifyHomePage = () => {
                           Model
                         </label>
                         <GroupedAutocomplete
-                          key={selectedBrand} // Add key to force re-render when brand changes
-                          optionsData={filteredModels}
+                          key={selectedBrand}
+                          optionsData={cars.Model}
                           label="Select Model"
-                          onChange={handleModelChange} // Handle model changes
-                          value={selectedModel} // Pass the selected model value
-                          disabled={!selectedBrand} // Disable if no brand is selected
+                          value={selectedModel}
+                          onChange={(event, value) =>
+                            handleChange(event, value, 1)
+                          } // Add onChange handler
                         />
                       </div>
                       <div
@@ -178,7 +249,7 @@ const WorthifyHomePage = () => {
                         className="button-primary-gradient contact-form"
                       >
                         <input
-                          type="submit"
+                          type="Evaluate your Car"
                           data-wait="Please wait..."
                           className="button-primary small w-button"
                           defaultValue="Evaluate your Car"
@@ -212,132 +283,15 @@ const WorthifyHomePage = () => {
                 className="faqs-title-wrapper"
               >
                 <h2 className="title faqs">Analytics and Charts</h2>
-              </div>
-              <div
-                data-w-id="9b8946bb-913e-7adf-a432-673d5fac3276"
-                style={{
-                  WebkitTransform:
-                    "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
-                  MozTransform:
-                    "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
-                  msTransform:
-                    "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
-                  transform:
-                    "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
-                  opacity: 0,
-                }}
-                className="faqs-wrapper"
-              >
-                <div className="card faq">
-                  <div className="card-faq-content-top">
-                    <h3 className="title h4-size card-faq">
-                      Does Dark X offers a free trial?
-                    </h3>
-                    <div className="card-faq-icon-gradient">
-                      <div className="card-faq-icon-wrapper">
-                        <div className="card-faq-icon-1" />
-                        <div className="card-faq-icon-2" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="card-faq-content-bottom">
-                    <p className="paragraph card-faq">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua.
-                    </p>
-                  </div>
-                </div>
-                <div className="card faq">
-                  <div className="card-faq-content-top">
-                    <h3 className="title h4-size card-faq">
-                      Do you currently have open positions?
-                    </h3>
-                    <div className="card-faq-icon-gradient">
-                      <div className="card-faq-icon-wrapper">
-                        <div className="card-faq-icon-1" />
-                        <div className="card-faq-icon-2" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="card-faq-content-bottom">
-                    <p className="paragraph card-faq">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua.
-                    </p>
-                  </div>
-                </div>
-                <div className="card faq">
-                  <div className="card-faq-content-top">
-                    <h3 className="title h4-size card-faq">
-                      Do you offer discounts for non-profits?
-                    </h3>
-                    <div className="card-faq-icon-gradient">
-                      <div className="card-faq-icon-wrapper">
-                        <div className="card-faq-icon-1" />
-                        <div className="card-faq-icon-2" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="card-faq-content-bottom">
-                    <p className="paragraph card-faq">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua.
-                    </p>
-                  </div>
-                </div>
-                <div className="card faq">
-                  <div className="card-faq-content-top">
-                    <h3 className="title h4-size card-faq">
-                      What is your product refund policy?
-                    </h3>
-                    <div className="card-faq-icon-gradient">
-                      <div className="card-faq-icon-wrapper">
-                        <div className="card-faq-icon-1" />
-                        <div className="card-faq-icon-2" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="card-faq-content-bottom">
-                    <p className="paragraph card-faq">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua.
-                    </p>
-                  </div>
-                </div>
-                <div className="card faq last">
-                  <div className="card-faq-content-top">
-                    <h3 className="title h4-size card-faq">
-                      What are current features in the roadmap?
-                    </h3>
-                    <div className="card-faq-icon-gradient">
-                      <div className="card-faq-icon-wrapper">
-                        <div className="card-faq-icon-1" />
-                        <div className="card-faq-icon-2" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="card-faq-content-bottom">
-                    <p className="paragraph card-faq">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-gradient-blur-wrapper faqs">
-                <div className="bg-gradient-blur-circle-3" />
-                <div className="bg-gradient-blur-circle-2 blue left" />
-                <div className="bg-gradient-blur-circle-1 pink" />
+                <p>
+                  View our perfect analytics and charts to shut your mouths.
+                </p>
               </div>
             </div>
             <div className="container-default home-hero w-container">
               <div
                 data-w-id="58ed6e0c-7961-e5e6-bc1d-6ae6c94a1d9c"
+                onClick={redirectToChartPage}
                 style={{
                   WebkitTransform:
                     "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
@@ -354,49 +308,21 @@ const WorthifyHomePage = () => {
                 <img
                   src="/images/image-1-home-hero-dark-template.svg"
                   loading="eager"
-                  alt=""
+                  alt="placeholder image"
                   className="image home-hero-1"
                 />
                 <img
                   src="/images/image-2-home-hero-dark-template.svg"
                   loading="eager"
-                  alt="Investor App - Dark X Webflow Template"
+                  alt="placeholder image"
                   className="image home-hero-2"
                 />
                 <img
                   src="/images/image-3-home-hero-dark-template.svg"
                   loading="eager"
-                  alt="Investor App - Dark X Webflow Template"
+                  alt="placeholder image"
                   className="image home-hero-3"
                 />
-              </div>
-              <div className="home-hero-companies-wrapper">
-                <div className="home-hero-companies">
-                  <img
-                    src="/images/agency-logo-dark-x-webflow-template.svg"
-                    loading="eager"
-                    alt="Agency Logo - Dark X Webflow Template"
-                    className="image home-hero-company"
-                  />
-                  <img
-                    src="/images/application-logo-dark-x-webflow-template.svg"
-                    loading="eager"
-                    alt="Application Logo - Dark X Webflow Template"
-                    className="image home-hero-company google"
-                  />
-                  <img
-                    src="/images/company-logo-dark-x-webflow-template.svg"
-                    loading="eager"
-                    alt="Company Logo - Dark X Webflow Template"
-                    className="image home-hero-company youtube"
-                  />
-                  <img
-                    src="/images/business-logo-dark-x-webflow-template.svg"
-                    loading="eager"
-                    alt="Business Logo - Dark X Webflow Template"
-                    className="image home-hero-company"
-                  />
-                </div>
               </div>
               <div className="bg-gradient-blur-wrapper home-hero-1">
                 <div className="bg-gradient-blur-circle-3" />

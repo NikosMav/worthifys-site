@@ -1578,6 +1578,10 @@ figcaption {
 
 .container-default.home-hero {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .container-default.home-features {
@@ -4198,7 +4202,7 @@ figcaption {
 }
 
 .container-medium-940px.home-hero.small {
-  max-width: 1000px;
+  max-width: 1100px;
   margin-top: 60px;
 }
 
@@ -4237,6 +4241,8 @@ figcaption {
   margin-bottom: 102px;
   display: flex;
   position: relative;
+  max-width: 940px;
+  cursor: pointer; /* Change cursor to indicate it's clickable */
 }
 
 .container-medium-756px {
@@ -7228,6 +7234,10 @@ figcaption {
 
 .info {
   padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* This centers items vertically */
+  justify-content: center; /* This centers items horizontally (optional) */
 }
 
 .first-form {
