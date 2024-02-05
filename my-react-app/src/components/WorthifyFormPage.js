@@ -12,7 +12,7 @@ const WorthifyFormPage = () => {
   const [cars, setCars] = useState({
     Brand: [],
     Model: [],
-    //Variant: [],
+    Variant: [],
     Cubic: [],
     Category: [],
     Fuel: [],
@@ -77,6 +77,14 @@ const WorthifyFormPage = () => {
     fetchData();
   };
 
+  //Initialize Reset Key State
+  const [resetKey, setResetKey] = useState(0);
+
+  const handleClearForm = () => {
+    // This will force the form or components with this key to re-render
+    setResetKey((prevKey) => prevKey + 1);
+  };
+
   useEffect(() => {
     window.Webflow && window.Webflow.destroy();
     window.Webflow && window.Webflow.ready();
@@ -135,6 +143,7 @@ const WorthifyFormPage = () => {
                   <div className="card contact-form evaluation-form">
                     <div className="contact-form-block w-form">
                       <form
+                        key={resetKey}
                         id="wf-form-contact-form"
                         name="wf-form-Contact-Form"
                         data-name="Contact Form"
@@ -152,6 +161,7 @@ const WorthifyFormPage = () => {
                             Brand
                           </label>
                           <GroupedAutocomplete
+                            key={`grouped-autocomplete-brand-${resetKey}`}
                             optionsData={cars.Brand}
                             label="Select Brand"
                             onChange={(event, value) =>
@@ -167,6 +177,7 @@ const WorthifyFormPage = () => {
                             Model
                           </label>
                           <GroupedAutocomplete
+                            key={`grouped-autocomplete-model-${resetKey}`}
                             optionsData={cars.Model}
                             label="Select Model"
                             onChange={(event, value) =>
@@ -182,12 +193,28 @@ const WorthifyFormPage = () => {
                             Variant
                           </label>
                           {/* <GroupedAutocomplete
+                            key={`grouped-autocomplete-variant-${resetKey}`}
                             optionsData={cars.Variant}
                             label="Select Variant"
-                            // onChange={(event, value) =>
-                            //   handleChange(event, value, 2)
-                            // } // Add onChange handler
+                            onChange={(event, value) =>
+                              handleChange(event, value, 2)
+                            } // Add onChange handler
                           /> */}
+                          <input
+                            key={`grouped-autocomplete-variant-${resetKey}`}
+                            type="text"
+                            id="variant"
+                            name="Variant"
+                            placeholder="Input Variant"
+                            className="brand-dropdown w-select "
+                            style={{
+                              height: "61px",
+                              border: "1px solid white",
+                              padding: "15px",
+                              borderRadius: "10px",
+                              fontFamily: "Thicccboi",
+                            }}
+                          ></input>
                         </div>
                         <div>
                           <label
@@ -197,10 +224,11 @@ const WorthifyFormPage = () => {
                             Engine
                           </label>
                           <GroupedAutocomplete
+                            key={`grouped-autocomplete-cubic-${resetKey}`}
                             optionsData={cars.Cubic}
                             label="Select Engine"
                             onChange={(event, value) =>
-                              handleChange(event, value, 2)
+                              handleChange(event, value, 3)
                             } // Add onChange handler
                           />
                         </div>
@@ -212,9 +240,12 @@ const WorthifyFormPage = () => {
                             Date
                           </label>
                           <GroupedAutocomplete
+                            key={`grouped-autocomplete-date-${resetKey}`}
                             optionsData={carData.Year}
                             label="Select Date"
-                            // onChange={(event, value) => handleChange(event, value, 2)} // Add onChange handler
+                            onChange={(event, value) =>
+                              handleChange(event, value, 4)
+                            } // Add onChange handler
                           />
                         </div>
                         <div>
@@ -225,10 +256,11 @@ const WorthifyFormPage = () => {
                             Category
                           </label>
                           <GroupedAutocomplete
+                            key={`grouped-autocomplete-category-${resetKey}`}
                             optionsData={cars.Category}
                             label="Select Category"
                             onChange={(event, value) =>
-                              handleChange(event, value, 3)
+                              handleChange(event, value, 5)
                             } // Add onChange handler
                           />
                         </div>
@@ -240,10 +272,11 @@ const WorthifyFormPage = () => {
                             Fuel
                           </label>
                           <GroupedAutocomplete
+                            key={`grouped-autocomplete-fuel-${resetKey}`}
                             optionsData={cars.Fuel}
                             label="Select Fuel"
                             onChange={(event, value) =>
-                              handleChange(event, value, 4)
+                              handleChange(event, value, 6)
                             } // Add onChange handler
                           />
                         </div>
@@ -255,10 +288,11 @@ const WorthifyFormPage = () => {
                             Transmission
                           </label>
                           <GroupedAutocomplete
+                            key={`grouped-autocomplete-transmission-${resetKey}`}
                             optionsData={cars.Transmission}
                             label="Select Transmission"
                             onChange={(event, value) =>
-                              handleChange(event, value, 5)
+                              handleChange(event, value, 7)
                             } // Add onChange handler
                           />
                         </div>
@@ -270,10 +304,11 @@ const WorthifyFormPage = () => {
                             Doors
                           </label>
                           <GroupedAutocomplete
+                            key={`grouped-autocomplete-doors-${resetKey}`}
                             optionsData={cars.Doors}
                             label="Select Doors"
                             onChange={(event, value) =>
-                              handleChange(event, value, 6)
+                              handleChange(event, value, 8)
                             } // Add onChange handler
                           />
                         </div>
@@ -285,6 +320,7 @@ const WorthifyFormPage = () => {
                             Mileage
                           </label>
                           <input
+                            key={`grouped-autocomplete-mileage-${resetKey}`}
                             type="number"
                             id="mileage"
                             min="0"
@@ -309,7 +345,10 @@ const WorthifyFormPage = () => {
                           >
                             Postal Code
                           </label>
-                          <PostalCodeField onChange={handlePostalCodeChange} />
+                          <PostalCodeField
+                            key={`grouped-autocomplete-postalcode-${resetKey}`}
+                            onChange={handlePostalCodeChange}
+                          />
                           <span
                             id="zipcodeError"
                             style={{ color: "red", display: "none" }}
@@ -317,6 +356,24 @@ const WorthifyFormPage = () => {
                             Invalid Zip Code
                           </span>
                         </div>
+                        <div
+                          id="w-node-_8ccbc011-c20c-04a7-65e7-f6cbb3c839d7-6e3e7670-2"
+                          className="button-primary-gradient contact-form"
+                        >
+                          <input
+                            type="button"
+                            onClick={handleClearForm}
+                            className="button-primary small w-button"
+                            defaultValue="Clear"
+                          />
+                        </div>
+                        {/* <button
+                          type="button"
+                          onClick={handleClearForm}
+                          className="clear-button"
+                        >
+                          Clear
+                        </button> */}
                         <div
                           id="w-node-_8ccbc011-c20c-04a7-65e7-f6cbb3c839d7-6e3e7670"
                           className="button-primary-gradient contact-form"

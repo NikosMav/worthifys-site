@@ -1829,7 +1829,7 @@ figcaption {
 }
 
 .paragraph-large.about-hero {
-  max-width: 696px;
+  max-width: 770px;
   margin-bottom: 0;
 }
 
@@ -2243,7 +2243,7 @@ figcaption {
 .section.home-perks {
   padding-top: 0;
   padding-bottom: 204px;
-  display: none;
+  display: block;
 }
 
 .section.home-perks.top {
@@ -2280,26 +2280,31 @@ figcaption {
 .section.story {
   padding-top: 0;
   padding-bottom: 144px;
+  display: block;
 }
 
 .section.values {
   padding-top: 0;
   padding-bottom: 233px;
+  display: none;
 }
 
 .section.about-team {
   padding-top: 0;
   padding-bottom: 140px;
+  display: block;
 }
 
 .section.about-offices {
   padding-top: 0;
   padding-bottom: 115px;
   overflow: hidden;
+  display: none;
 }
 
 .section.partners {
   padding-top: 0;
+  display: none;
 }
 
 .section.blog-hero {
@@ -3027,6 +3032,7 @@ figcaption {
   margin-bottom: 32px;
   padding: 32px 38px;
   transition: box-shadow .3s, transform .3s;
+  display: none;
 }
 
 .card.faq:hover {
@@ -3610,6 +3616,10 @@ figcaption {
 .image-wrapper.story-right {
   border-radius: 22px;
   margin-bottom: 80px;
+}
+
+.image-wrapper.story-right._2 {
+  margin-top: 100px;
 }
 
 .image-wrapper.team-item {
@@ -5248,13 +5258,33 @@ figcaption {
   grid-column: span 2;  /* Span across two columns */
 }
 
+.clear-button {
+  background-color: transparent;
+  color: inherit; /* Inherits the color from the parent element */
+  border: none;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  font-family: inherit;
+  text-decoration: underline; /* Adds a slight visual cue */
+  transition: color 0.3s ease;
+  grid-row: 5; /* Last (fifth) row */
+  grid-column: 1; /* Third column, to the right of the submit button */
+  justify-self: start; /* Align to the start (left side) of its grid cell, adjust based on design */
+}
+
+.clear-button:hover {
+  color: #6923ff; /* Change to your preferred hover color */
+}
+
 .text-no-wrap {
   white-space: nowrap;
 }
 
 .about-hero-content {
   z-index: 1;
-  max-width: 897px;
+  max-width: 1000px;
   margin-bottom: 80px;
   position: relative;
 }
@@ -5316,6 +5346,10 @@ figcaption {
 
 .story-left-content {
   margin-bottom: 98px;
+}
+
+.story-left-content._2 {
+  margin-top: 130px;
 }
 
 .story-right-content {
@@ -7373,10 +7407,12 @@ figcaption {
 
   .section.story {
     padding-bottom: 180px;
+    display: block;
   }
 
   .section.values {
     padding-bottom: 291px;
+    display: none;
   }
 
   .section.about-team {
@@ -7385,6 +7421,11 @@ figcaption {
 
   .section.about-offices {
     padding-bottom: 144px;
+    display: none;
+  }
+
+  .section.partners {
+    display: none;
   }
 
   .section.blog-hero {
@@ -7490,8 +7531,16 @@ figcaption {
     padding-bottom: 137px;
   }
 
+  .image-wrapper.story-right._2 {
+    margin-top: 80px;
+  }
+
   .container-medium-940px.home-hero, .container-medium-940px.home-hero.small {
     max-width: 1200px;
+  }
+
+  .story-left-content._2 {
+    margin-top: 100px;
   }
 
   .image-home-link-wrapper {
@@ -8170,6 +8219,10 @@ figcaption {
     margin-bottom: 0;
   }
 
+  .image-wrapper.story-right._2 {
+    margin-top: 0;
+  }
+
   .image-wrapper.about-offices {
     margin-left: -60px;
   }
@@ -8472,9 +8525,15 @@ figcaption {
     margin-bottom: 60px;
   }
 
+  .story-left-content._2 {
+    margin-top: 40px;
+    margin-bottom: 0;
+  }
+
   .story-right-content {
     max-width: none;
     margin-bottom: 60px;
+    margin-top: 60px;
   }
 
   .about-offices-grid {
@@ -12165,8 +12224,19 @@ figcaption {
 }
 
 #w-node-_8ccbc011-c20c-04a7-65e7-f6cbb3c839d7-6e3e7670 {
-  grid-area: span 1 / span 3 / span 1 / span 3;
-  justify-self: center;
+  grid-row: 5; /* Positioning it in the last (fifth) row */
+  grid-column: 3; /* Center column of a 3-column grid */
+  justify-self: center; /* Center within the column */
+}
+
+#w-node-_8ccbc011-c20c-04a7-65e7-f6cbb3c839d7-6e3e7670-2 {
+  grid-row: 5; /* Positioning it in the last (fifth) row */
+  grid-column: 1; /* Center column of a 3-column grid */
+  justify-self: center; /* Center within the column */
+}
+
+#w-node-d73605ae-8fc8-519d-f946-1f35cb83653a-6e3e76a1 {
+  align-self: center;
 }
 
 #w-node-_3e7a8937-b0d4-0bb4-0996-b874a1c80065-6e3e7670, #w-node-_4a34076c-4cfe-01f2-e074-ed64c2a63d9c-6e3e767b, #w-node-eb612dfe-8984-acba-8c41-303f7da31fa7-6e3e767b, #w-node-c0526998-eb9e-0ac8-c994-4bd31a88f286-6e3e767b {
@@ -12197,7 +12267,7 @@ figcaption {
 }
 
 @media screen and (max-width: 767px) {
-  #w-node-_8ccbc011-c20c-04a7-65e7-f6cbb3c839d7-6e3e7670, #w-node-afb9b871-31e8-c258-d227-e3d4471c65f9-6e3e76a1 {
+  #w-node-_8ccbc011-c20c-04a7-65e7-f6cbb3c839d7-6e3e7670, #w-node-afb9b871-31e8-c258-d227-e3d4471c65f9-6e3e76a1, #w-node-_8ccbc011-c20c-04a7-65e7-f6cbb3c839d7-6e3e7670-2 {
     grid-column: span 1 / span 1;
   }
 }

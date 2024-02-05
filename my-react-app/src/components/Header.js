@@ -45,13 +45,8 @@ const Header = () => {
                     </Link>
                   </li>
                   <li className="nav-item-wrapper">
-                    <Link to="/" className="nav-link">
+                    <Link to="/about-page" className="nav-link">
                       About
-                    </Link>
-                  </li>
-                  <li className="nav-item-wrapper">
-                    <Link to="/" className="nav-link">
-                      Team
                     </Link>
                   </li>
                   {/* More internal navigation links */}
