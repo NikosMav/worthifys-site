@@ -311,7 +311,11 @@ const WorthifyAboutPage = () => {
               >
                 <div role="list" className="team-grid w-dyn-items">
                   <div role="listitem" className="team-item w-dyn-item">
-                    <a href="#" className="team-item-wrapper w-inline-block">
+                    <a
+                      href="https://www.linkedin.com/in/anastasios-melidonis/"
+                      className="team-item-wrapper w-inline-block"
+                      target="_blank"
+                    >
                       <div className="team-item-content-top">
                         <div className="image-wrapper team-item">
                           <img
@@ -336,28 +340,11 @@ const WorthifyAboutPage = () => {
                     </a>
                   </div>
                   <div role="listitem" className="team-item w-dyn-item">
-                    <a href="#" className="team-item-wrapper w-inline-block">
-                      <div className="team-item-content-top">
-                        <div className="image-wrapper team-item">
-                          <img
-                            src=""
-                            loading="eager"
-                            alt=""
-                            className="image team-item"
-                          />
-                        </div>
-                        <div className="team-item-job-tag-gradient">
-                          <text className="team-item-job-tag">Member</text>
-                        </div>
-                      </div>
-                      <div className="team-item-content">
-                        <h3 className="title team-item">Dimitrios Foteinos</h3>
-                        <p className="paragraph team-item">Data Scientist</p>
-                      </div>
-                    </a>
-                  </div>
-                  <div role="listitem" className="team-item w-dyn-item">
-                    <a href="#" className="team-item-wrapper w-inline-block">
+                    <a
+                      href="https://www.linkedin.com/in/dimitris-makaronis-4aa147266/"
+                      className="team-item-wrapper w-inline-block"
+                      target="_blank"
+                    >
                       <div className="team-item-content-top">
                         <div className="image-wrapper team-item">
                           <img
@@ -378,7 +365,36 @@ const WorthifyAboutPage = () => {
                     </a>
                   </div>
                   <div role="listitem" className="team-item w-dyn-item">
-                    <a href="#" className="team-item-wrapper w-inline-block">
+                    <a
+                      href="https://www.linkedin.com/in/dimitrios-foteinos-9008941b8/"
+                      className="team-item-wrapper w-inline-block"
+                      target="_blank"
+                    >
+                      <div className="team-item-content-top">
+                        <div className="image-wrapper team-item">
+                          <img
+                            src=""
+                            loading="eager"
+                            alt=""
+                            className="image team-item"
+                          />
+                        </div>
+                        <div className="team-item-job-tag-gradient">
+                          <text className="team-item-job-tag">Member</text>
+                        </div>
+                      </div>
+                      <div className="team-item-content">
+                        <h3 className="title team-item">Dimitrios Foteinos</h3>
+                        <p className="paragraph team-item">Data Scientist</p>
+                      </div>
+                    </a>
+                  </div>
+                  <div role="listitem" className="team-item w-dyn-item">
+                    <a
+                      href="https://www.linkedin.com/in/nikolaos-mavrapidis/"
+                      className="team-item-wrapper w-inline-block"
+                      target="_blank"
+                    >
                       <div className="team-item-content-top">
                         <div className="image-wrapper team-item">
                           <img
@@ -394,7 +410,9 @@ const WorthifyAboutPage = () => {
                       </div>
                       <div className="team-item-content">
                         <h3 className="title team-item">Nikolaos Mavrapidis</h3>
-                        <p className="paragraph team-item">Poutanas gios</p>
+                        <p className="paragraph team-item">
+                          Frontend Developer
+                        </p>
                       </div>
                     </a>
                   </div>

@@ -1943,7 +1943,7 @@ figcaption {
 }
 
 .button-primary.small {
-  padding: 18px 80px;
+  padding: 18px 40px;
 }
 
 .button-primary.small.integration {
@@ -4204,7 +4204,7 @@ figcaption {
   grid-row-gap: 16px;
   text-align: center;
   grid-template-rows: auto;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 0.75fr;
   grid-auto-columns: 1fr;
   margin-bottom: 78px;
   display: grid;
