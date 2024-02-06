@@ -3,6 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 const WorthifyAboutPage = () => {
+  // webflow.js
   useEffect(() => {
     window.Webflow && window.Webflow.destroy();
     window.Webflow && window.Webflow.ready();

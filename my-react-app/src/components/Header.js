@@ -40,7 +40,7 @@ const Header = () => {
                     </Link>
                   </li>
                   <li className="nav-item-wrapper">
-                    <Link to="/" className="nav-link">
+                    <Link to="/chart-page" className="nav-link">
                       Charts
                     </Link>
                   </li>
