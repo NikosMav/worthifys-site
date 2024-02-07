@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import PieChartComponent23 from "./charts/PieChartComponent23";
+import PieChartComponent22 from "./charts/PieChartComponent22";
 
 const WorthifyChartPage = () => {
   // webflow.js
@@ -16,6 +18,13 @@ const WorthifyChartPage = () => {
   html.setAttribute("data-wf-page", "65a4292a06a5231e6e3e7664");
   html.setAttribute("data-wf-site", "65a4292906a5231e6e3e760e");
 
+  const [year, setYear] = useState(2023); // Default to 2023
+
+  // Toggle between 2023 and 2022
+  const toggleYear = () => {
+    setYear(year === 2023 ? 2022 : 2023);
+  };
+
   return (
     <div className="sales-body">
       <div className="page-wrapper">
@@ -30,8 +39,7 @@ const WorthifyChartPage = () => {
               >
                 <div className="text-center">
                   <h2>
-                    The Dark X Webflow Template also comes with more
-                    surprises...
+                    Our charts are more than just visual representations...
                   </h2>
                 </div>
               </div>
@@ -41,29 +49,28 @@ const WorthifyChartPage = () => {
                 className="w-layout-grid grid-2-col sales-sections"
               >
                 <div id="w-node-cf8dcce5-8fd6-61bb-45fb-4e33267d7a84-6e3e7664">
-                  <h2>3 Headers and Footers</h2>
+                  <h2 className="chart-title">Car Sales Distribution</h2>
                   <p className="mg-bottom-40px">
-                    With a total of 3 different headers and footers, you can
-                    easily customize the Dark X Webflow Template to fit your
-                    company needs and requirements.
+                    This chart shows the distribution of car sales across
+                    various brands in {year}, providing insights into consumer
+                    preferences and market trends.
                   </p>
                   <div className="button-primary-gradient _2-buttons">
-                    <a
-                      href="https://webflow.com/templates/html/dark-x-app-website-template"
+                    <button
+                      onClick={toggleYear}
                       className="button-primary w-button"
                     >
-                      Buy Template
-                    </a>
+                      Switch to {year === 2023 ? 2022 : 2023}
+                    </button>
                   </div>
                 </div>
-                <img
-                  src="images/headers-and-footers-dark-x-webflow-template.png"
-                  srcSet="images/headers-and-footers-dark-x-webflow-template-p-500.png 500w, images/headers-and-footers-dark-x-webflow-template-p-800.png 800w, images/headers-and-footers-dark-x-webflow-template.png 1288w"
-                  id="w-node-fb25724c-0da5-16ee-8add-bb091af7c808-6e3e7664"
-                  sizes="(max-width: 479px) 90vw, (max-width: 767px) 94vw, (max-width: 991px) 95vw, (max-width: 1919px) 96vw, 1198px"
-                  alt="Headers And Footers - Dark X Webflow Template"
-                  className="sales-image-wrapper"
-                />
+                <div className="chart-div">
+                  {year === 2023 ? (
+                    <PieChartComponent23 />
+                  ) : (
+                    <PieChartComponent22 />
+                  )}
+                </div>
               </div>
               <div
                 data-w-id="fac2aa87-e868-6e59-d10f-2375feecea42"

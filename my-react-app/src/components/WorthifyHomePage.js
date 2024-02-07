@@ -248,12 +248,9 @@ const WorthifyHomePage = () => {
                         id="w-node-afb9b871-31e8-c258-d227-e3d4471c65f9-6e3e76a1"
                         className="button-primary-gradient contact-form"
                       >
-                        <input
-                          type="Evaluate your Car"
-                          data-wait="Please wait..."
-                          className="button-primary small w-button"
-                          defaultValue="Evaluate your Car"
-                        />
+                        <button className="button-primary small w-button">
+                          Evaluate your Car
+                        </button>
                       </div>
                       {!isFormValid && submitAttempted && (
                         <div className="error-message">

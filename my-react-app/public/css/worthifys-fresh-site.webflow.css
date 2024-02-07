@@ -2064,6 +2064,16 @@ figcaption {
   margin-top: 58px;
 }
 
+.chart-div {
+  flex: 1;
+  padding: 20px;
+}
+
+.chart-title {
+  font-size: 34px;
+  margin-bottom: 30px;
+}
+
 .cards-grid {
   grid-column-gap: 24px;
   grid-row-gap: 40px;
@@ -6982,8 +6992,8 @@ figcaption {
   grid-column-gap: 80px;
   grid-template-columns: .8fr 1fr;
   align-items: center;
-  margin-top: 88px;
-  margin-bottom: 88px;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 .grid-2-col.sales-sections.left-image {
