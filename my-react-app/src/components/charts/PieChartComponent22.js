@@ -53,6 +53,7 @@ const PieChartComponent22 = () => {
         },
         font: {
           weight: "bold",
+          size: 10,
         },
         anchor: "end",
         align: "start",

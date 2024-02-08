@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
-import PieChartComponent23 from "./charts/PieChartComponent23";
-import PieChartComponent22 from "./charts/PieChartComponent22";
+import Header from "../Header.js";
+import Footer from "../Footer.js";
+import PieChartComponent23 from "../charts/PieChartComponent23.js";
+import PieChartComponent22 from "../charts/PieChartComponent22.js";
+import AccuracyLineChart from "../charts/AccuracyLineChart.js";
+import ErrorLineChart from "../charts/ErrorLineChart.js";
 
 const WorthifyChartPage = () => {
   // webflow.js
@@ -77,29 +79,22 @@ const WorthifyChartPage = () => {
                 style={{ opacity: 0 }}
                 className="w-layout-grid grid-2-col sales-sections left-image"
               >
-                <img
-                  src="images/notification-banner-dark-x-webflow-template.png"
-                  srcSet="images/notification-banner-dark-x-webflow-template-p-500.png 500w, images/notification-banner-dark-x-webflow-template-p-800.png 800w, images/notification-banner-dark-x-webflow-template.png 1288w"
-                  id="w-node-fac2aa87-e868-6e59-d10f-2375feecea4b-6e3e7664"
-                  sizes="(max-width: 479px) 90vw, (max-width: 767px) 94vw, (max-width: 991px) 95vw, (max-width: 1919px) 96vw, 1198px"
-                  alt="Notifications - Dark X Webflow Template"
-                  className="sales-image-wrapper"
-                />
+                <div>
+                  <AccuracyLineChart />
+                </div>
                 <div id="w-node-fac2aa87-e868-6e59-d10f-2375feecea43-6e3e7664">
-                  <h2>3 Notification Bars</h2>
+                  <h2 className="chart-title">
+                    Model Accuracy Improvement Over Time
+                  </h2>
                   <p className="mg-bottom-40px">
-                    If you are looking to get more sales, use one of our 3
-                    notification bars included in the Dark X Webflow Template,
-                    and start promoting your products or services.
+                    This visualization captures the essence of progress,
+                    showcasing the consistent upward trajectory of our model's
+                    accuracy over successive iterations. This chart represents
+                    the hard-earned results of rigorous training and refinement.
+                    As we navigate through iterations, we witness the
+                    transformative power of machine learning - turning raw data
+                    into reliable insights and robust predictions.
                   </p>
-                  <div className="button-primary-gradient _2-buttons">
-                    <a
-                      href="https://webflow.com/templates/html/dark-x-app-website-template"
-                      className="button-primary w-button"
-                    >
-                      Buy Template
-                    </a>
-                  </div>
                 </div>
               </div>
               <div
@@ -108,42 +103,22 @@ const WorthifyChartPage = () => {
                 className="w-layout-grid grid-2-col sales-sections"
               >
                 <div id="w-node-dc1ec8d6-369e-c849-0ec9-25afa4e2ad8f-6e3e7664">
-                  <h2>Custom Icon Set</h2>
+                  <h2 className="chart-title">
+                    Model Error Reduction Over Iterations
+                  </h2>
                   <p className="mg-bottom-40px">
-                    The Dark X Webflow Template includes 3 sets of custom icons
-                    (rounded, square and filled), so you can easily use more
-                    icon fonts in your template.
-                    <br />
-                    <br />
-                    No matter if you are looking to add another social media
-                    icon in the footer, or change the cart icon in the header,
-                    we got you covered.
+                    As we chart the journey of our model's refinement, this
+                    graph illustrates the pivotal declines in error percentage.
+                    This steady decrease in error rates is a product of our
+                    adaptive learning techniques and our pursuit of perfection.
+                    With each iteration, we are edging closer to the pinnacle of
+                    precision, ensuring that every prediction is a stride
+                    towards certainty.
                   </p>
-                  <div className="_2-buttons-wrapper left">
-                    <div className="button-primary-gradient _2-buttons">
-                      <a
-                        href="https://webflow.com/templates/html/dark-x-app-website-template"
-                        className="button-primary w-button"
-                      >
-                        Buy Template
-                      </a>
-                    </div>
-                    <a
-                      href="https://brixtemplates.com/icon-fonts"
-                      className="button-secondary _2-buttons w-button"
-                    >
-                      View icon font
-                    </a>
-                  </div>
                 </div>
-                <img
-                  src="images/icons-dark-x-webflow-template.png"
-                  srcSet="images/icons-dark-x-webflow-template-p-500.png 500w, images/icons-dark-x-webflow-template-p-800.png 800w, images/icons-dark-x-webflow-template.png 1288w"
-                  id="w-node-dc1ec8d6-369e-c849-0ec9-25afa4e2ad97-6e3e7664"
-                  sizes="(max-width: 479px) 90vw, (max-width: 767px) 94vw, (max-width: 991px) 95vw, (max-width: 1919px) 96vw, 1198px"
-                  alt="Icons - Dark X Webflow Template"
-                  className="sales-image-wrapper"
-                />
+                <div>
+                  <ErrorLineChart />
+                </div>
               </div>
               <div
                 data-w-id="9198ae79-d0c8-4a16-b07d-1a20d7372449"

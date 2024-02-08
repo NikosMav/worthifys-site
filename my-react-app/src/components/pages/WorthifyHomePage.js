@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "../Header";
+import Footer from "../Footer";
 import { useNavigate } from "react-router-dom";
-import GroupedAutocomplete from "./Autocomplete";
+import GroupedAutocomplete from "../Autocomplete";
 
 const array = ["*", "*", "*", "*", "*", "*", "*"];
 
