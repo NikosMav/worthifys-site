@@ -5,6 +5,7 @@ import PieChartComponent23 from "../charts/PieChartComponent23.js";
 import PieChartComponent22 from "../charts/PieChartComponent22.js";
 import AccuracyLineChart from "../charts/AccuracyLineChart.js";
 import ErrorLineChart from "../charts/ErrorLineChart.js";
+import Heatmap from "../charts/HeatMap.js";
 
 const WorthifyChartPage = () => {
   // webflow.js
@@ -125,31 +126,15 @@ const WorthifyChartPage = () => {
                 style={{ opacity: 0 }}
                 className="w-layout-grid grid-2-col sales-sections left-image"
               >
-                <img
-                  src="images/social-media-assets-dark-x-webflow-template.png"
-                  srcSet="images/social-media-assets-dark-x-webflow-template-p-500.png 500w, images/social-media-assets-dark-x-webflow-template-p-800.png 800w, images/social-media-assets-dark-x-webflow-template.png 1288w"
-                  id="w-node-_9198ae79-d0c8-4a16-b07d-1a20d737244a-6e3e7664"
-                  sizes="(max-width: 479px) 90vw, (max-width: 767px) 94vw, (max-width: 991px) 95vw, (max-width: 1919px) 96vw, 1198px"
-                  alt="Social Media Banners - Dark X Webflow Template"
-                  className="sales-image-wrapper"
-                />
+                <div className="map-wrapper">
+                  <Heatmap />
+                </div>
                 <div id="w-node-_9198ae79-d0c8-4a16-b07d-1a20d737244b-6e3e7664">
-                  <h2>Social Media Assets</h2>
+                  <h2 className="chart-title">Automotive Density and Distribution in the Region</h2>
                   <p className="mg-bottom-40px">
-                    Our Dark X Webflow Template Figma file includes a collection
-                    of social media covers that match with the Webflow Template
-                    design (for Facebook, Twitter and LinkedIn), so you can
-                    easily edit, customize, and use them for your own social
-                    media profiles.
+                  This heatmap illustrates the distribution of cars within the region, with brighter colors marking higher concentrations. It serves as a snapshot of vehicle density, aiding in traffic management and urban planning initiatives to accommodate the area's transportation demands.
                   </p>
-                  <div className="button-primary-gradient _2-buttons">
-                    <a
-                      href="https://webflow.com/templates/html/dark-x-app-website-template"
-                      className="button-primary w-button"
-                    >
-                      Buy Template
-                    </a>
-                  </div>
+                  
                 </div>
               </div>
               <div

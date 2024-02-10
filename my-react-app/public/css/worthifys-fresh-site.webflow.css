@@ -4538,6 +4538,14 @@ figcaption {
   box-shadow: 0 2px 2px rgba(0, 0, 0, .85);
 }
 
+.leaflet-container {
+  height: 600px; /* Or your desired height */
+  width: 100%; /* Or your desired width */
+  border-radius: 20px; /* This creates a circle, adjust as needed for different roundness */
+  overflow: hidden; /* This ensures that anything outside the border-radius is not visible */
+  border: 3px solid #242424; /* Adjust color and size as needed */
+}
+
 .testimonials-left-arrow {
   width: 72px;
   max-height: 72px;
