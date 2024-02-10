@@ -26,7 +26,7 @@ const Heatmap = () => {
   }, []);
 
   return (
-    <MapContainer center={center} zoom={6} minZoom={6} maxZoom={10} maxBounds={bounds} maxBoundsViscosity={1.0} className="leaflet-container">
+    <MapContainer center={center} zoom={6} minZoom={6} maxZoom={8} maxBounds={bounds} maxBoundsViscosity={1.0} className="leaflet-container">
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -57,12 +57,12 @@ useEffect(() => {
     let zoom = 17;
     let blur = 10;
     console.log(radiusOption)
-    radiusOption = radiusOption*4
+    // radiusOption = radiusOption*6
     
     if (radiusOption > 7){
-      zoom = 16
-      // blur = 10
-      // radiusOption = radiusOption*6
+      // zoom = 17
+      blur = 7
+      radiusOption = radiusOption*6
     }else{
       radiusOption = radiusOption*4
     }
