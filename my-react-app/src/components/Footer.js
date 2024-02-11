@@ -9,17 +9,15 @@ const Footer = () => {
           <div className="footer-v3-col-left">
             <div className="footer-small-print">
               Copyright © Worthify | Designed by{" "}
-              <a
-                href="https://brixtemplates.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Worthify Team
-              </a>
+              <a rel="noopener noreferrer">Worthify Team</a>
             </div>
           </div>
           <div className="footer-v3-col-middle">
-            <Link to="/" className="footer-logo-container v3 w-inline-block">
+            <Link
+              to="/"
+              onClick={() => window.scrollTo(0, 0)}
+              className="footer-logo-container v3 w-inline-block"
+            >
               <img
                 src="/images/horizontal-logo.png"
                 sizes="(max-width: 767px) 125px, 150px"
@@ -31,54 +29,23 @@ const Footer = () => {
           </div>
           <div className="footer-v3-col-right">
             <div className="social-media-wrapper v3">
-              {/* Update social media links with correct icons */}
-              <a
-                href="https://www.facebook.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-media-link mg-bottom-0"
-              >
-                Facebook Icon
+              <a class="social-media-link mg-bottom-0">
+                <i class="fab fa-facebook-f"></i>
               </a>
-              <a
-                href="https://twitter.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-media-link icon-size-13px mg-bottom-0"
-              >
-                Twitter Icon
+              <a class="social-media-link icon-size-13px mg-bottom-0">
+                <i class="fab fa-twitter"></i>
               </a>
-              <a
-                href="https://www.instagram.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-media-link icon-size-15px mg-bottom-0"
-              >
-                Instagram Icon
+              <a class="social-media-link icon-size-15px mg-bottom-0">
+                <i class="fab fa-instagram"></i>
               </a>
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-media-link icon-size-13px mg-bottom-0"
-              >
-                LinkedIn Icon
+              <a class="social-media-link icon-size-13px mg-bottom-0">
+                <i class="fab fa-linkedin-in"></i>
               </a>
-              <a
-                href="https://www.youtube.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-media-link icon-size-13px mg-bottom-0"
-              >
-                YouTube Icon
+              <a class="social-media-link icon-size-13px mg-bottom-0">
+                <i class="fab fa-youtube"></i>
               </a>
-              <a
-                href="https://www.whatsapp.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-media-link last"
-              >
-                WhatsApp Icon
+              <a class="social-media-link last">
+                <i class="fab fa-whatsapp"></i>
               </a>
             </div>
           </div>

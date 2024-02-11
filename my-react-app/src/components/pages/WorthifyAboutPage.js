@@ -39,7 +39,7 @@ const WorthifyAboutPage = () => {
                   }}
                   className="display-1 about-hero"
                 >
-                  <strong>Empowering Ownership</strong>{" "}
+                  <strong>Empowering Ownership</strong> <br />
                   <span className="text-color-accent">
                     <strong>with AI-Driven Valuations</strong>
                   </span>
@@ -241,10 +241,10 @@ const WorthifyAboutPage = () => {
                     className="image-wrapper story-right"
                   >
                     <img
-                      src="images/image-2-home-hero-dark-template.svg"
+                      src="images/image-map-dark-template.png"
                       loading="eager"
-                      alt="Investor App - Dark X Webflow Template"
-                      className="image story-right"
+                      alt=""
+                      className="image story-right-2"
                     />
                   </div>
                   <div className="story-right-content">
@@ -283,7 +283,7 @@ const WorthifyAboutPage = () => {
                       loading="eager"
                       sizes="(max-width: 479px) 90vw, (max-width: 991px) 94vw, (max-width: 1919px) 43vw, 539.1000366210938px"
                       srcSet="images/image-2-home-perks-dark-template-p-500.jpeg 500w, images/image-2-home-perks-dark-template-p-800.jpeg 800w, images/image-2-home-perks-dark-template-p-1080.jpeg 1080w, images/image-2-home-perks-dark-template.jpg 1224w"
-                      alt="Real Time Trading - Dark X Webflow Template"
+                      alt=""
                       className="image story-right"
                     />
                   </div>
@@ -299,9 +299,8 @@ const WorthifyAboutPage = () => {
             >
               <h2 className="title about-team">The Team</h2>
               <p className="paragraph about-team">
-                Mattis nunc sed blandit libero volutpat sed cras ornare arcu a
-                diam sollicitudin tempor id eu{" "}
-                <span className="text-no-wrap">mattis vulputate</span>
+                Meet the driving force of Worthify
+                <br />A diverse group of thinkers, creators, and innovators.
               </p>
             </div>
             <div className="container-default w-container">
@@ -334,9 +333,7 @@ const WorthifyAboutPage = () => {
                         <h3 className="title team-item">
                           Anastasios Melidonis
                         </h3>
-                        <p className="paragraph team-item">
-                          Software Developer
-                        </p>
+                        <p className="paragraph team-item">Software Engineer</p>
                       </div>
                     </a>
                   </div>
@@ -361,7 +358,7 @@ const WorthifyAboutPage = () => {
                       </div>
                       <div className="team-item-content">
                         <h3 className="title team-item">Dimitrios Makaronis</h3>
-                        <p className="paragraph team-item">Data Scientist</p>
+                        <p className="paragraph team-item">Data Analyst</p>
                       </div>
                     </a>
                   </div>
@@ -387,6 +384,31 @@ const WorthifyAboutPage = () => {
                       <div className="team-item-content">
                         <h3 className="title team-item">Dimitrios Foteinos</h3>
                         <p className="paragraph team-item">Data Scientist</p>
+                      </div>
+                    </a>
+                  </div>
+                  <div role="listitem" className="team-item w-dyn-item">
+                    <a
+                      href="https://www.linkedin.com/in/nikolaos-mavrapidis/"
+                      className="team-item-wrapper w-inline-block"
+                      target="_blank"
+                    >
+                      <div className="team-item-content-top">
+                        <div className="image-wrapper team-item">
+                          <img
+                            src=""
+                            loading="eager"
+                            alt=""
+                            className="image team-item"
+                          />
+                        </div>
+                        <div className="team-item-job-tag-gradient">
+                          <text className="team-item-job-tag">Member</text>
+                        </div>
+                      </div>
+                      <div className="team-item-content">
+                        <h3 className="title team-item">Hara Koukoulidi</h3>
+                        <p className="paragraph team-item">Associate Lawyer</p>
                       </div>
                     </a>
                   </div>

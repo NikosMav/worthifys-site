@@ -59,6 +59,11 @@ const PieChartComponent23 = () => {
         align: "start",
         offset: 10,
       },
+      legend: {
+        labels: {
+          color: "#FFFFFF", // White text for legend labels
+        },
+      },
     },
   };
 

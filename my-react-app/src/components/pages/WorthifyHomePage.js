@@ -99,6 +99,13 @@ const WorthifyHomePage = () => {
   };
   const redirectToChartPage = () => {
     navigate("/chart-page");
+    // Scroll to the top of the page
+    window.scrollTo(0, 0);
+  };
+  const redirectToAboutPage = () => {
+    navigate("/about-page");
+    // Scroll to the top of the page
+    window.scrollTo(0, 0);
   };
 
   // Brands and Models
@@ -330,6 +337,58 @@ const WorthifyHomePage = () => {
                 <div className="bg-gradient-blur-circle-3" />
                 <div className="bg-gradient-blur-circle-2 blue" />
                 <div className="bg-gradient-blur-circle-1 purple" />
+              </div>
+            </div>
+            <div className="container-medium-800px faqs front">
+              <div
+                data-w-id="9b8946bb-913e-7adf-a432-673d5fac326f"
+                style={{
+                  WebkitTransform:
+                    "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                  MozTransform:
+                    "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                  msTransform:
+                    "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                  transform:
+                    "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                  opacity: 0,
+                }}
+                className="faqs-title-wrapper"
+              >
+                <h2 className="title faqs">About Us</h2>
+              </div>
+            </div>
+            <div
+              data-w-id="536544ec-77b7-39b3-106e-94faf2286668"
+              style={{
+                WebkitTransform:
+                  "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                MozTransform:
+                  "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                msTransform:
+                  "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                transform:
+                  "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                opacity: 0,
+              }}
+              className="card team-page-careers"
+            >
+              <div className="card-team-page-careers-content">
+                <h3 className="title card-team-page-careers">
+                  Interested in knowing more about our vision?
+                </h3>
+                <p className="paragraph card-team-page-careers">
+                  Meet the dedicated team, explore our mission, and see
+                  firsthand how passion fuels our every innovation.
+                </p>
+              </div>
+              <div className="button-primary-gradient card-team-page-careers">
+                <a
+                  onClick={redirectToAboutPage}
+                  className="button-primary small w-button"
+                >
+                  Learn About Us
+                </a>
               </div>
             </div>
           </section>

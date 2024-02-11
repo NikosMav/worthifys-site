@@ -1602,6 +1602,10 @@ figcaption {
   position: relative;
 }
 
+.container-default.chart-page {
+  margin-top: 80px;
+}
+
 .container-default.values {
   justify-content: center;
   align-items: center;
@@ -2148,7 +2152,7 @@ figcaption {
 }
 
 .display-1 {
-  font-size: 78px;
+  font-size: 70px;
 }
 
 .display-1.small {
@@ -2772,6 +2776,12 @@ figcaption {
   margin-top: 16px;
 }
 
+.team-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .card {
   background-color: var(--secondary-5);
   box-shadow: 0 5px 14px 0 var(--shadow-card-default);
@@ -2911,7 +2921,6 @@ figcaption {
   max-width: 792px;
   justify-content: space-between;
   align-items: center;
-  margin-top: 100px;
   margin-left: auto;
   margin-right: auto;
   padding: 54px 55px;
@@ -3836,6 +3845,11 @@ figcaption {
 }
 
 .image.story-right {
+  width: 100%;
+  object-fit: cover;
+}
+
+.image.story-right-2 {
   width: 100%;
   object-fit: cover;
 }
@@ -5302,9 +5316,20 @@ figcaption {
 
 .about-hero-content {
   z-index: 1;
-  max-width: 1000px;
+  max-width: 950px;
   margin-bottom: 80px;
   position: relative;
+}
+
+.about-hero-content.chart {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.chart-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .about-hero-achievements-grid {
@@ -5450,7 +5475,7 @@ figcaption {
   grid-column-gap: 25px;
   grid-row-gap: 25px;
   grid-template-rows: auto;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-auto-columns: 1fr;
   display: grid;
 }
@@ -5485,7 +5510,7 @@ figcaption {
   text-transform: uppercase;
   border-radius: 1000px;
   padding: 8px 18px;
-  font-size: 14px;
+  font-size: 10px;
   font-weight: 700;
   line-height: 1.286em;
 }
@@ -5498,7 +5523,8 @@ figcaption {
   background-image: linear-gradient(to right, #6f86ff, #b372ce 49%, #ff7586);
   border-radius: 10000px;
   padding: 2px;
-  display: inline-block;
+  display: flex;
+  align-items: center;
   position: absolute;
   top: 20px;
   right: 20px;
@@ -6981,12 +7007,12 @@ figcaption {
 }
 
 .container-medium-840px {
-  max-width: 840px;
+  max-width: 1000px;
   margin-top: 100px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .text-center {
@@ -6998,7 +7024,7 @@ figcaption {
 }
 
 .grid-2-col.sales-sections {
-  grid-column-gap: 80px;
+  grid-column-gap: 50px;
   grid-template-columns: .8fr 1fr;
   align-items: center;
   margin-top: 100px;
