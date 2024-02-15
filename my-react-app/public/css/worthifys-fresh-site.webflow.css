@@ -5874,6 +5874,7 @@ figcaption {
 }
 
 .categories-collection-list-wrapper {
+  display: none;
   margin-bottom: 20px;
 }
 
