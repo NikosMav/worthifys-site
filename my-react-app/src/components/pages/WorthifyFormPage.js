@@ -233,7 +233,7 @@ const WorthifyFormPage = () => {
                             optionsData={cars.Cubic}
                             label="Select Engine"
                             onChange={(event, value) =>
-                              handleChange(event, value, 3)
+                              handleChange(event, value, 2)
                             } // Add onChange handler
                           />
                         </div>
@@ -248,9 +248,9 @@ const WorthifyFormPage = () => {
                             key={`grouped-autocomplete-date-${resetKey}`}
                             optionsData={carData.Year}
                             label="Select Date"
-                            onChange={(event, value) =>
-                              handleChange(event, value, 4)
-                            } // Add onChange handler
+                            // onChange={(event, value) =>
+                            //   handleChange(event, value, 4)
+                            // } // Add onChange handler
                           />
                         </div>
                         <div>
@@ -265,7 +265,7 @@ const WorthifyFormPage = () => {
                             optionsData={cars.Category}
                             label="Select Category"
                             onChange={(event, value) =>
-                              handleChange(event, value, 5)
+                              handleChange(event, value, 3)
                             } // Add onChange handler
                           />
                         </div>
@@ -281,7 +281,7 @@ const WorthifyFormPage = () => {
                             optionsData={cars.Fuel}
                             label="Select Fuel"
                             onChange={(event, value) =>
-                              handleChange(event, value, 6)
+                              handleChange(event, value, 4)
                             } // Add onChange handler
                           />
                         </div>
@@ -297,7 +297,7 @@ const WorthifyFormPage = () => {
                             optionsData={cars.Transmission}
                             label="Select Transmission"
                             onChange={(event, value) =>
-                              handleChange(event, value, 7)
+                              handleChange(event, value, 5)
                             } // Add onChange handler
                           />
                         </div>
@@ -313,7 +313,7 @@ const WorthifyFormPage = () => {
                             optionsData={cars.Doors}
                             label="Select Doors"
                             onChange={(event, value) =>
-                              handleChange(event, value, 8)
+                              handleChange(event, value, 6)
                             } // Add onChange handler
                           />
                         </div>
