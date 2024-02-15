@@ -22,7 +22,7 @@ const WorthifyHomePage = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "http://51.20.7.61:443/gottaCheckMyShite",
+          "http://16.170.253.186:443/gottaCheckMyShite",
           {
             // URL of your Flask server
             method: "POST",
@@ -54,7 +54,7 @@ const WorthifyHomePage = () => {
     // console.log(array)
     const fetchData = async () => {
       try {
-        const response = await fetch("http://51.20.7.61:443/process", {
+        const response = await fetch("http://16.170.253.186:443/process", {
           // URL of your Flask server
           method: "POST",
           headers: {
