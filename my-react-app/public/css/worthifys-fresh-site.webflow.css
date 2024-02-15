@@ -6799,7 +6799,7 @@ figcaption {
   grid-column-gap: 25px;
   grid-row-gap: 32px;
   grid-template-rows: auto auto auto;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-auto-columns: 1fr;
   display: grid;
 }
@@ -6810,8 +6810,8 @@ figcaption {
 }
 
 .card-contact-form.form-2 {
-  grid-column-gap: 15px;
-  grid-row-gap: 25px;
+  grid-column-gap: 40px;
+  grid-row-gap: 15px;
 }
 
 .input-wrapper {
@@ -12339,7 +12339,7 @@ figcaption {
 
 #w-node-_8ccbc011-c20c-04a7-65e7-f6cbb3c839d7-6e3e7670 {
   grid-row: 6; /* Positioning it in the last (fifth) row */
-  grid-column: 4; /* Center column of a 3-column grid */
+  grid-column: 3; /* Center column of a 3-column grid */
   justify-self: center; /* Center within the column */
 }
 

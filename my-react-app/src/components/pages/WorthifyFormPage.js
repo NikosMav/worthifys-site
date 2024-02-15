@@ -318,22 +318,6 @@ const WorthifyFormPage = () => {
                           />
                         </div>
                         <div>
-                          <label
-                            htmlFor="seats-autocomplete"
-                            className="field-label form-2"
-                          >
-                            Seats
-                          </label>
-                          {/* <GroupedAutocomplete
-                            key={`grouped-autocomplete-seats-${resetKey}`}
-                            optionsData={cars.Seats}
-                            label="Select Seats"
-                            onChange={(event, value) =>
-                              handleChange(event, value, 9)
-                            } // Add onChange handler
-                          /> */}
-                        </div>
-                        <div>
                           <label htmlFor="color" className="field-label form-2">
                             Color
                           </label>
@@ -380,34 +364,6 @@ const WorthifyFormPage = () => {
                               fontSize: "18px",
                             }}
                           ></input>
-                        </div>
-                        <div>
-                          <label
-                            htmlFor="Merchant"
-                            className="field-label form-2"
-                          >
-                            Merchant
-                          </label>
-                          <select
-                            id="merchant"
-                            name="Merchant"
-                            className="brand-dropdown w-select"
-                            style={{
-                              height: "61px",
-                              border: "1px solid white",
-                              padding: "15px",
-                              borderRadius: "10px",
-                              fontFamily: "Thicccboi",
-                              fontSize: "18px",
-                              // backgroundColor: "transparent", // Add this if you want the dropdown to have a transparent background
-                              // color: "white", // Add this if you want the text to be white
-                              // // Adjust other styles as needed
-                            }}
-                          >
-                            <option value="">Select an option</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                          </select>
                         </div>
                         <div>
                           <label

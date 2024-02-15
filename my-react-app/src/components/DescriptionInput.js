@@ -10,7 +10,7 @@ const DescriptionInput = ({ value, onChange }) => {
         onChange={onChange}
         className="text-area brand-dropdown w-select "
         placeholder="Enter a description..."
-        rows="2" // You can set the number of rows to define the initial height
+        rows="3" // You can set the number of rows to define the initial height
         style={{
           padding: "15px",
           border: "1px solid white",
