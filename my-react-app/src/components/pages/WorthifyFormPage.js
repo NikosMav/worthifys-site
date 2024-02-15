@@ -3,6 +3,7 @@ import Header from "../Header";
 import Footer from "../Footer";
 import GroupedAutocomplete from "../Autocomplete";
 import PostalCodeField from "../PostalCodeField";
+import DescriptionInput from "../DescriptionInput";
 import carData from "../../carData.json";
 
 //             brand,model,displ,cat,fuel,trans,doors
@@ -18,6 +19,7 @@ const WorthifyFormPage = () => {
     Fuel: [],
     Transmission: [],
     Doors: [],
+    //Seats: [],
   });
 
   useEffect(() => {
@@ -100,6 +102,16 @@ const WorthifyFormPage = () => {
   const handlePostalCodeChange = (zipCode) => {
     // Handle zip code value
     console.log(zipCode);
+  };
+
+  const [description, setDescription] = useState("");
+  const handleDescriptionChange = (event) => {
+    setDescription(event.target.value);
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    // Form submission logic here
   };
 
   return (
@@ -192,14 +204,6 @@ const WorthifyFormPage = () => {
                           >
                             Variant
                           </label>
-                          {/* <GroupedAutocomplete
-                            key={`grouped-autocomplete-variant-${resetKey}`}
-                            optionsData={cars.Variant}
-                            label="Select Variant"
-                            onChange={(event, value) =>
-                              handleChange(event, value, 2)
-                            } // Add onChange handler
-                          /> */}
                           <input
                             key={`grouped-autocomplete-variant-${resetKey}`}
                             type="text"
@@ -213,6 +217,7 @@ const WorthifyFormPage = () => {
                               padding: "15px",
                               borderRadius: "10px",
                               fontFamily: "Thicccboi",
+                              fontSize: "18px",
                             }}
                           ></input>
                         </div>
@@ -314,6 +319,43 @@ const WorthifyFormPage = () => {
                         </div>
                         <div>
                           <label
+                            htmlFor="seats-autocomplete"
+                            className="field-label form-2"
+                          >
+                            Seats
+                          </label>
+                          {/* <GroupedAutocomplete
+                            key={`grouped-autocomplete-seats-${resetKey}`}
+                            optionsData={cars.Seats}
+                            label="Select Seats"
+                            onChange={(event, value) =>
+                              handleChange(event, value, 9)
+                            } // Add onChange handler
+                          /> */}
+                        </div>
+                        <div>
+                          <label htmlFor="color" className="field-label form-2">
+                            Color
+                          </label>
+                          <input
+                            key={`grouped-autocomplete-color-${resetKey}`}
+                            type="text"
+                            id="color"
+                            name="Color"
+                            placeholder="Input Color"
+                            className="brand-dropdown w-select "
+                            style={{
+                              height: "61px",
+                              border: "1px solid white",
+                              padding: "15px",
+                              borderRadius: "10px",
+                              fontFamily: "Thicccboi",
+                              fontSize: "18px",
+                            }}
+                          ></input>
+                        </div>
+                        <div>
+                          <label
                             htmlFor="mileage"
                             className="field-label form-2"
                           >
@@ -335,8 +377,37 @@ const WorthifyFormPage = () => {
                               padding: "15px",
                               borderRadius: "10px",
                               fontFamily: "Thicccboi",
+                              fontSize: "18px",
                             }}
                           ></input>
+                        </div>
+                        <div>
+                          <label
+                            htmlFor="Merchant"
+                            className="field-label form-2"
+                          >
+                            Merchant
+                          </label>
+                          <select
+                            id="merchant"
+                            name="Merchant"
+                            className="brand-dropdown w-select"
+                            style={{
+                              height: "61px",
+                              border: "1px solid white",
+                              padding: "15px",
+                              borderRadius: "10px",
+                              fontFamily: "Thicccboi",
+                              fontSize: "18px",
+                              // backgroundColor: "transparent", // Add this if you want the dropdown to have a transparent background
+                              // color: "white", // Add this if you want the text to be white
+                              // // Adjust other styles as needed
+                            }}
+                          >
+                            <option value="">Select an option</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                          </select>
                         </div>
                         <div>
                           <label
@@ -349,12 +420,25 @@ const WorthifyFormPage = () => {
                             key={`grouped-autocomplete-postalcode-${resetKey}`}
                             onChange={handlePostalCodeChange}
                           />
-                          <span
+                          {/* <span
                             id="zipcodeError"
                             style={{ color: "red", display: "none" }}
                           >
                             Invalid Zip Code
-                          </span>
+                          </span> */}
+                        </div>
+                        <div id="description-id">
+                          <label
+                            htmlFor="description"
+                            className="field-label form-2"
+                          >
+                            Description
+                          </label>
+                          <DescriptionInput
+                            key={`grouped-autocomplete-desc-${resetKey}`}
+                            value={description}
+                            onChange={handleDescriptionChange}
+                          />
                         </div>
                         <div
                           id="w-node-_8ccbc011-c20c-04a7-65e7-f6cbb3c839d7-6e3e7670-2"

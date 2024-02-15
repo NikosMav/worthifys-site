@@ -13,7 +13,7 @@ const PostalCodeField = ({ onChange }) => {
       setError("");
       onChange(value);
     } else {
-      setError("Please enter a valid postal code.");
+      setError("Incorrect postal code.");
     }
   };
 
@@ -33,6 +33,7 @@ const PostalCodeField = ({ onChange }) => {
           padding: "15px",
           borderRadius: "10px",
           fontFamily: "Thicccboi",
+          fontSize: "18px",
         }}
         required
       />

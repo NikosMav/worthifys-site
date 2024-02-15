@@ -3587,9 +3587,31 @@ figcaption {
 
 .split-content.contact-form {
   width: 100%;
-  max-width: 850px;
+  max-width: 1000px;
   position: relative;
 }
+
+.input-wrapper {
+  margin-bottom: 15px;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 5px;
+  color: #ffffff; /* Adjust the color to fit your design */
+}
+
+.text-area {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical; /* Allows the user to resize the textarea vertically */
+  font-size: 16px; /* Adjust font size as needed */
+  color: #333; /* Text color */
+  background-color: #fff; /* Background color */
+}
+
 
 .checkout-field-label {
   color: var(--neutral-100);
@@ -6774,10 +6796,10 @@ figcaption {
 
 .card-contact-form {
   max-width: 100%;
-  grid-column-gap: 26px;
-  grid-row-gap: 40px;
+  grid-column-gap: 25px;
+  grid-row-gap: 32px;
   grid-template-rows: auto auto auto;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-auto-columns: 1fr;
   display: grid;
 }
@@ -12306,18 +12328,23 @@ figcaption {
   }
 }
 
+#description-id {
+  grid-row: 5;
+  grid-column: 1 / span 3; /* Span across all three columns */
+}
+
 #w-node-_7620c1ce-c3ec-963b-ae4d-44b60b4a0c21-6e3e7664, #w-node-_306bcc3f-0942-ebd8-f159-4419aa39909b-6e3e7664, #w-node-a59c3373-ce5c-28e0-3b8e-ae8fd80a066e-6e3e7664, #w-node-e02c438d-2036-e01d-f2ea-28b60dec4d5a-6e3e7664, #w-node-e8e7405e-4186-9e01-0c43-306b83f46534-6e3e7664, #w-node-_4644f5cd-636e-f52e-c400-4ce87f379eec-6e3e7664, #w-node-_3361a33e-ab0d-ed32-33cf-b27a3dd143b5-6e3e7664, #w-node-_725e8666-a6c8-505e-71cb-6abcfe96be6b-6e3e7664, #w-node-_4c6576f6-2c13-de0f-c06e-913a4770db6f-6e3e7664, #w-node-b6865139-d235-aea9-f44c-d430e19382ea-6e3e7664, #w-node-f331701f-60d7-4b47-6d0f-e8d64e3fcf98-6e3e7664, #w-node-e33bc6d3-c8bd-5549-6a1d-db16247c9770-6e3e7664, #w-node-fc8332dc-1f90-f8e2-e3c2-a4e7649e1602-6e3e7664, #w-node-_1dd74fb6-7b55-778a-799e-5af374da5afd-6e3e7664, #w-node-_47e85bbf-2b1c-e0be-c9e1-a6a5f46b5e09-6e3e7664, #w-node-_87a782ee-1357-eab2-8ddf-5bfdc4931405-6e3e7664, #w-node-_87a782ee-1357-eab2-8ddf-5bfdc493140b-6e3e7664, #w-node-_4cd695b9-ebc6-9861-b9f2-36fa043fb086-6e3e7664, #w-node-_4cd695b9-ebc6-9861-b9f2-36fa043fb08c-6e3e7664, #w-node-cf8dcce5-8fd6-61bb-45fb-4e33267d7a84-6e3e7664, #w-node-fb25724c-0da5-16ee-8add-bb091af7c808-6e3e7664, #w-node-fac2aa87-e868-6e59-d10f-2375feecea4b-6e3e7664, #w-node-fac2aa87-e868-6e59-d10f-2375feecea43-6e3e7664, #w-node-dc1ec8d6-369e-c849-0ec9-25afa4e2ad8f-6e3e7664, #w-node-dc1ec8d6-369e-c849-0ec9-25afa4e2ad97-6e3e7664, #w-node-_9198ae79-d0c8-4a16-b07d-1a20d737244a-6e3e7664, #w-node-_9198ae79-d0c8-4a16-b07d-1a20d737244b-6e3e7664, #w-node-_050b0796-2111-ae39-25de-e5cebf594ea0-6e3e7664, #w-node-_050b0796-2111-ae39-25de-e5cebf594eae-6e3e7664, #w-node-_4716d649-b54c-ab3a-4a55-54bbd276c197-6e3e7664, #w-node-e2f6fadf-9fed-350e-c2aa-52c4c516c143-6e3e7664, #w-node-_14d1cde4-4d4a-f24b-af06-6c985505dc06-6e3e7670, #w-node-_42f4fb17-236a-4a2d-f114-8c80334f3f18-6e3e7670, #w-node-_6e835cbb-7261-fc37-7737-e52fe94feff6-6e3e7670, #w-node-f0332866-6a23-9c5b-508a-4a533ff01ee6-6e3e7670, #w-node-_2cdb8425-c167-9a3d-5df2-aa4d9575cd34-6e3e7670, #w-node-_122377a8-8267-b7af-f9cb-4f0c53a4aba7-6e3e7670, #w-node-_52a71856-fafc-88b1-e133-ad6c0cc1a51c-6e3e7670, #w-node-_4ccede12-f0a4-c373-7cc1-202709254143-6e3e7670, #w-node-_1e46c983-60d6-514f-835b-06039ba11559-6e3e7670 {
   grid-area: span 1 / span 1 / span 1 / span 1;
 }
 
 #w-node-_8ccbc011-c20c-04a7-65e7-f6cbb3c839d7-6e3e7670 {
-  grid-row: 5; /* Positioning it in the last (fifth) row */
-  grid-column: 3; /* Center column of a 3-column grid */
+  grid-row: 6; /* Positioning it in the last (fifth) row */
+  grid-column: 4; /* Center column of a 3-column grid */
   justify-self: center; /* Center within the column */
 }
 
 #w-node-_8ccbc011-c20c-04a7-65e7-f6cbb3c839d7-6e3e7670-2 {
-  grid-row: 5; /* Positioning it in the last (fifth) row */
+  grid-row: 6; /* Positioning it in the last (fifth) row */
   grid-column: 1; /* Center column of a 3-column grid */
   justify-self: center; /* Center within the column */
 }
