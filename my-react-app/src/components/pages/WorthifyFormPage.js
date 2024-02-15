@@ -85,6 +85,33 @@ const WorthifyFormPage = () => {
   const handleClearForm = () => {
     // This will force the form or components with this key to re-render
     setResetKey((prevKey) => prevKey + 1);
+    for(const i in array){
+      array[i] = "*";
+    }
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "http://16.170.253.186:443/gottaCheckMyShite",
+          {
+            // URL of your Flask server
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ array: array }),
+          }
+        );
+        const data = await response.json();
+        // console.log(data)
+        setCars(data);
+        // console.log(cars.Cubic);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+    console.log(cars);
   };
 
   useEffect(() => {
