@@ -220,6 +220,7 @@ const WorthifyHomePage = () => {
                           htmlFor="brand-autocomplete"
                           className="field-label"
                         >
+                          <i class="fas fa-car-side"></i>
                           Brand
                         </label>
                         <GroupedAutocomplete
@@ -239,6 +240,7 @@ const WorthifyHomePage = () => {
                           htmlFor="model-autocomplete"
                           className="field-label"
                         >
+                          <i class="fas fa-car"></i>
                           Model
                         </label>
                         <GroupedAutocomplete
@@ -360,7 +362,10 @@ const WorthifyHomePage = () => {
                 }}
                 className="faqs-title-wrapper"
               >
-                <h2 className="title faqs">About Us</h2>
+                <div className="title-with-icon">
+                  <i class="fas fa-users icon-left"></i>
+                  <h2 className="title faqs">About Us</h2>
+                </div>
               </div>
             </div>
             <div

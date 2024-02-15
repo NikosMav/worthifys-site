@@ -2949,6 +2949,27 @@ figcaption {
   margin: 0; /* Adjust as needed */
 }
 
+.title-with-icon {
+  display: inline-flex; /* Use inline-flex to center the content and keep the structure inline */
+  align-items: center;
+}
+
+.icon-left {
+  font-size: 24px; /* Adjust the size as necessary */
+  color: #ffffff; /* Adjust the color as necessary */
+  margin-right: 10px; /* Space between icon and title */
+}
+
+.title.faqs {
+  display: inline-block; /* Inline block will allow the title to sit next to the icon */
+  margin: 0; /* Adjust as needed */
+}
+
+.field-label i {
+  margin-right: 5px; /* Space between icon and label text */
+  color: #ffffff; /* Assuming white icons for contrast */
+}
+
 .card.team {
   z-index: 1;
   flex: 1;
