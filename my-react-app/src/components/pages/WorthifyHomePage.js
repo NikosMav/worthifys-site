@@ -286,9 +286,14 @@ const WorthifyHomePage = () => {
                 }}
                 className="faqs-title-wrapper"
               >
-                <h2 className="title faqs">Analytics and Charts</h2>
+                <div className="title-with-icon">
+                  <i className="fas fa-chart-bar icon-left"></i>
+                  <h2 className="title faqs">Analytics and Charts</h2>
+                </div>
                 <p>
-                  View our perfect analytics and charts to shut your mouths.
+                  Dive into our meticulously crafted analytics and explore
+                  charts that capture the essence of data-driven
+                  decision-making.
                 </p>
               </div>
             </div>

@@ -2928,6 +2928,27 @@ figcaption {
   position: relative;
 }
 
+.faqs-title-wrapper {
+  text-align: center; /* Center align the content */
+}
+
+.title-with-icon {
+  display: inline-flex; /* Use inline-flex to center the content and keep the structure inline */
+  align-items: center;
+  justify-content: center; /* Center the items horizontally */
+}
+
+.icon-left {
+  font-size: 24px; /* Or any other size */
+  color: #ffffff; /* Assuming white icons for contrast */
+  margin-right: 10px; /* Space between icon and title */
+}
+
+.title.faqs {
+  display: inline-block; /* Inline block will allow the title to sit next to the icon */
+  margin: 0; /* Adjust as needed */
+}
+
 .card.team {
   z-index: 1;
   flex: 1;
