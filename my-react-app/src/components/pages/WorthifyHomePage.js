@@ -107,6 +107,11 @@ const WorthifyHomePage = () => {
     // Scroll to the top of the page
     window.scrollTo(0, 0);
   };
+  const redirectToForecasting = () => {
+    navigate("/forecasting-page");
+    // Scroll to the top of the page
+    window.scrollTo(0, 0);
+  };
 
   // Brands and Models
   const [selectedBrand, setSelectedBrand] = useState("");
@@ -220,7 +225,7 @@ const WorthifyHomePage = () => {
                           htmlFor="brand-autocomplete"
                           className="field-label"
                         >
-                          <i class="fas fa-car-side"></i>
+                          {/* <i className="fas fa-car-side"></i> */}
                           Brand
                         </label>
                         <GroupedAutocomplete
@@ -240,7 +245,7 @@ const WorthifyHomePage = () => {
                           htmlFor="model-autocomplete"
                           className="field-label"
                         >
-                          <i class="fas fa-car"></i>
+                          {/* <i className="fas fa-car"></i> */}
                           Model
                         </label>
                         <GroupedAutocomplete
@@ -346,6 +351,158 @@ const WorthifyHomePage = () => {
                 <div className="bg-gradient-blur-circle-1 purple" />
               </div>
             </div>
+            <div className="container-default w-container forecasting">
+              <div className="home-perks-wrapper">
+                {/* <div className="home-perks-content-top-wrapper">
+                  <div className="home-perks-content-top-content">
+                    <h2 className="title home-perks">
+                      Real-time trading like never before
+                    </h2>
+                    <p className="paragraph home-perks">
+                      Lorem ipsum dolor sit amet consectetur adipiscing eli non
+                      amet arcu auctor orci vitae diam arcu{" "}
+                      <span className="text-no-wrap">tellus proin.</span>
+                    </p>
+                    <div className="w-layout-grid home-perks-grid">
+                      <div className="home-perk-wrapper">
+                        <img
+                          src="images/icon-1-home-perks-dark-template.svg"
+                          loading="eager"
+                          alt="1 Sec Operation - Dark X Webflow Template"
+                          className="image home-perk"
+                        />
+                        <div className="home-perk-content">
+                          <h3 className="title h4-size home-perk">
+                            &lt; 1 sec operations
+                          </h3>
+                          <p className="paragraph home-perk">
+                            Lorem ipsum dolor sit amet consectetur adipisc eli
+                            non amet arcu auctor orci vita tellus.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="home-perk-wrapper">
+                        <img
+                          src="images/icon-2-home-perks-dark-template.svg"
+                          loading="eager"
+                          alt="No Commissions - Dark X Webflow Template"
+                          className="image home-perk"
+                        />
+                        <div className="home-perk-content">
+                          <h3 className="title h4-size home-perk">
+                            No commissions
+                          </h3>
+                          <p className="paragraph home-perk">
+                            Lorem ipsum dolor sit amet consectetur adipisc eli
+                            non amet arcu auctor orci vita tellus.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    data-w-id="58ed6e0c-7961-e5e6-bc1d-6ae6c94a1e15"
+                    style={{
+                      WebkitTransform:
+                        "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                      MozTransform:
+                        "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                      msTransform:
+                        "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                      transform:
+                        "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                      opacity: 0,
+                    }}
+                    className="image-wrapper home-perks-content-top-image"
+                  >
+                    <img
+                      src="images/image-2-home-perks-dark-template.jpg"
+                      loading="eager"
+                      sizes="(max-width: 479px) 90vw, (max-width: 767px) 93vw, (max-width: 991px) 80vw, (max-width: 1919px) 50vw, 612px"
+                      srcSet="images/image-2-home-perks-dark-template-p-500.jpeg 500w, images/image-2-home-perks-dark-template-p-800.jpeg 800w, images/image-2-home-perks-dark-template-p-1080.jpeg 1080w, images/image-2-home-perks-dark-template.jpg 1224w"
+                      alt="Real Time Trading - Dark X Webflow Template"
+                      className="image home-perks-content-top-image"
+                    />
+                  </div>
+                </div> */}
+                <div className="home-perks-content-bottom-wrapper">
+                  <div
+                    data-w-id="58ed6e0c-7961-e5e6-bc1d-6ae6c94a1e18"
+                    style={{
+                      WebkitTransform:
+                        "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                      MozTransform:
+                        "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                      msTransform:
+                        "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                      transform:
+                        "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                      opacity: 0,
+                    }}
+                    className="image-wrapper home-perks-content-bottom-image"
+                  >
+                    <img
+                      src="images/image-1-home-perks-dark-template.jpg"
+                      loading="eager"
+                      sizes="(max-width: 479px) 90vw, (max-width: 767px) 93vw, (max-width: 991px) 80vw, (max-width: 1919px) 50vw, 612px"
+                      srcSet="images/image-2-home-perks-dark-template-p-500.jpeg 500w, images/image-2-home-perks-dark-template-p-800.jpeg 800w, images/image-2-home-perks-dark-template-p-1080.jpeg 1080w, images/image-2-home-perks-dark-template.jpg 1224w"
+                      className="image home-perks-content-bottom-image"
+                    />
+                  </div>
+                  <div className="home-perks-content-bottom-content">
+                    <div className="title-with-icon">
+                      <i className="fas fa-chart-line icon-left"></i>
+                      <h2 className="title home-perks">Price Forecasting</h2>
+                    </div>
+                    <p className="paragraph home-perks">
+                      Curious about your car's worth down the road?
+                    </p>
+                    <div className="w-layout-grid home-perks-grid">
+                      <div className="home-perk-wrapper">
+                        <div className="home-perk-content">
+                          <div className="title-with-icon">
+                            <i className="fas fa-circle small-dot icon-left"></i>
+                            <h3 className="title h4-size home-perk">
+                              Sophisticated Analytics
+                            </h3>
+                          </div>
+                          <p className="paragraph home-perk">
+                            Our price forecasting tool employs sophisticated
+                            analytics to project the future value of your
+                            vehicle. With just a few clicks, gain access to a
+                            personalized forecast that helps you make informed
+                            decisions about your car.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="home-perk-wrapper">
+                        <div className="home-perk-content">
+                          <div className="title-with-icon">
+                            <i className="fas fa-circle small-dot icon-left"></i>
+                            <h3 className="title h4-size home-perk">
+                              Informed Decisions
+                            </h3>
+                          </div>
+                          <p className="paragraph home-perk">
+                            Tap into our expertise and stay ahead of market
+                            trends. Start your journey towards smart car
+                            ownership now.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="button-primary-gradient card-team-page-careers margin-top">
+                      <a
+                        onClick={redirectToForecasting}
+                        className="button-primary small w-button"
+                      >
+                        Learn More
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="container-medium-800px faqs front">
               <div
                 data-w-id="9b8946bb-913e-7adf-a432-673d5fac326f"
@@ -363,7 +520,7 @@ const WorthifyHomePage = () => {
                 className="faqs-title-wrapper"
               >
                 <div className="title-with-icon">
-                  <i class="fas fa-users icon-left"></i>
+                  <i className="fas fa-users icon-left"></i>
                   <h2 className="title faqs">About Us</h2>
                 </div>
               </div>
@@ -384,10 +541,10 @@ const WorthifyHomePage = () => {
               className="card team-page-careers"
             >
               <div className="card-team-page-careers-content">
-                <h3 className="title card-team-page-careers">
+                <h3 className="title card-team-page-careers centered">
                   Interested in knowing more about our vision?
                 </h3>
-                <p className="paragraph card-team-page-careers">
+                <p className="paragraph card-team-page-careers centered">
                   Meet the dedicated team, explore our mission, and see
                   firsthand how passion fuels our every innovation.
                 </p>

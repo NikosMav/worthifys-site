@@ -82,10 +82,10 @@ const WorthifyAboutPage = () => {
                 >
                   <div className="card-about-hero-achievement-wrapper">
                     <div className="number-big card-about-hero-achievement">
-                      250M<span className="accent-primary-2">+</span>
+                      90K<span className="accent-primary-2">+</span>
                     </div>
                     <div className="card-about-hero-achievement-text">
-                      Traded monthly
+                      Total registrations
                     </div>
                   </div>
                 </div>
@@ -106,10 +106,10 @@ const WorthifyAboutPage = () => {
                 >
                   <div className="card-about-hero-achievement-wrapper">
                     <div className="number-big card-about-hero-achievement">
-                      300K<span className="accent-secondary-1">+</span>
+                      1200<span className="accent-secondary-1">+</span>
                     </div>
                     <div className="card-about-hero-achievement-text">
-                      Active users
+                      Daily entries
                     </div>
                   </div>
                 </div>
@@ -130,10 +130,10 @@ const WorthifyAboutPage = () => {
                 >
                   <div className="card-about-hero-achievement-wrapper">
                     <div className="number-big card-about-hero-achievement">
-                      10M<span className="accent-secondary-2">+</span>
+                      50<span className="accent-secondary-2">+</span>
                     </div>
                     <div className="card-about-hero-achievement-text">
-                      Saved in commissions
+                      Car brands
                     </div>
                   </div>
                 </div>
@@ -154,10 +154,10 @@ const WorthifyAboutPage = () => {
                 >
                   <div className="card-about-hero-achievement-wrapper">
                     <div className="number-big card-about-hero-achievement">
-                      75M<span className="accent-secondary-3">+</span>
+                      97<span className="accent-secondary-3">%</span>
                     </div>
                     <div className="card-about-hero-achievement-text">
-                      Capital in funding
+                      Accuracy
                     </div>
                   </div>
                 </div>

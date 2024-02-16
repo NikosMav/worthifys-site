@@ -1569,11 +1569,15 @@ figcaption {
 }
 
 .container-default {
-  max-width: 1246px;
+  max-width: 1220px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 24px;
   padding-right: 24px;
+}
+
+.container-default.forecasting {
+  margin-top: 120px;
 }
 
 .container-default.home-hero {
@@ -2707,6 +2711,10 @@ figcaption {
   margin-bottom: 0;
 }
 
+.paragraph.card-team-page-careers.centered {
+  text-align: center;
+}
+
 .paragraph.careers-hero {
   max-width: 710px;
   margin-bottom: 40px;
@@ -3363,6 +3371,10 @@ figcaption {
 
 .title.card-team-page-careers {
   margin-bottom: 9px;
+}
+
+.title.card-team-page-careers.centered {
+  text-align: center;
 }
 
 .title.team-articles {
@@ -6041,6 +6053,14 @@ figcaption {
   max-width: 412px;
   flex: 1;
   margin-right: 30px;
+}
+
+.card-team-page-careers.margin-top {
+  margin-top: 50px;
+}
+
+.small-dot {
+  font-size: 8px; /* or whatever size suits your design */
 }
 
 .team-collection-list-wrapper {

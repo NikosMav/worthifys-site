@@ -220,7 +220,7 @@ const WorthifyForecastingPage = () => {
               }}
               className="content-top blog"
             >
-              <h2 className="title blog">Car List</h2>
+              <h2 className="title blog">Results</h2>
               <div className="categories-collection-list-wrapper w-dyn-list">
                 <div role="list" className="categories-wrapper w-dyn-items">
                   <div role="listitem" className="category-item w-dyn-item">
@@ -270,9 +270,9 @@ const WorthifyForecastingPage = () => {
                   <a href="#" className="card post-item w-inline-block">
                     <div className="image-wrapper card-post-item">
                       <img
-                        src=""
+                        src="images/2016-Opel-Corsa.jpg"
                         loading="eager"
-                        alt=""
+                        alt="opel corsa 2016"
                         className="image card-post-item"
                       />
                       {/* <div className="card-post-item-category-wrapper">
@@ -286,31 +286,31 @@ const WorthifyForecastingPage = () => {
                       </div> */}
                     </div>
                     <div className="card-post-item-content">
-                      <h3 className="title card-post-item" />
+                      <h3 className="title card-post-item">Opel Corsa 2016</h3>
                       <div className="card-post-item-about-wrapper">
                         <div className="card-post-item-about-content">
-                          <img
+                          {/* <img
                             src="images/icon-1-post-about-dark-template.svg"
                             loading="eager"
                             alt="Calendar Icon - Dark X Webflow Template"
                             className="image card-post-item-about-icon"
-                          />
+                          /> */}
                           <div />
                         </div>
                         <div className="card-post-item-about-content">
-                          <img
+                          {/* <img
                             src="images/icon-2-post-about-dark-template.svg"
                             loading="eager"
                             alt="Clock Icon - Dark X Webflow Template"
                             className="image card-post-item-about-icon"
-                          />
+                          /> */}
                           <div />
-                          <div>&nbsp;min read</div>
+                          {/* <div>&nbsp;min read</div> */}
                         </div>
                       </div>
                       <div className="link-underline-main-wrapper">
                         <div className="link-underline-text-wrapper">
-                          <div>Read more</div>
+                          <div>Find out more</div>
                           <div className="link-underline-text-icon"></div>
                         </div>
                         <div className="link-underline-wrapper">
@@ -324,9 +324,9 @@ const WorthifyForecastingPage = () => {
                   <a href="#" className="card post-item w-inline-block">
                     <div className="image-wrapper card-post-item">
                       <img
-                        src=""
+                        src="images/2016-toyota-yaris.jpg"
                         loading="eager"
-                        alt=""
+                        alt="toyota yaris 2016"
                         className="image card-post-item"
                       />
                       {/* <div className="card-post-item-category-wrapper">
@@ -340,31 +340,33 @@ const WorthifyForecastingPage = () => {
                       </div> */}
                     </div>
                     <div className="card-post-item-content">
-                      <h3 className="title card-post-item" />
+                      <h3 className="title card-post-item">
+                        Toyota Yaris 2016
+                      </h3>
                       <div className="card-post-item-about-wrapper">
                         <div className="card-post-item-about-content">
-                          <img
+                          {/* <img
                             src="images/icon-1-post-about-dark-template.svg"
                             loading="eager"
                             alt="Calendar Icon - Dark X Webflow Template"
                             className="image card-post-item-about-icon"
-                          />
+                          /> */}
                           <div />
                         </div>
                         <div className="card-post-item-about-content">
-                          <img
+                          {/* <img
                             src="images/icon-2-post-about-dark-template.svg"
                             loading="eager"
                             alt="Clock Icon - Dark X Webflow Template"
                             className="image card-post-item-about-icon"
-                          />
+                          /> */}
                           <div />
-                          <div>&nbsp;min read</div>
+                          {/* <div>&nbsp;min read</div> */}
                         </div>
                       </div>
                       <div className="link-underline-main-wrapper">
                         <div className="link-underline-text-wrapper">
-                          <div>Read more</div>
+                          <div>Find out more</div>
                           <div className="link-underline-text-icon"></div>
                         </div>
                         <div className="link-underline-wrapper">
@@ -378,7 +380,7 @@ const WorthifyForecastingPage = () => {
               {/* <div className="empty-state w-dyn-empty">
                 <div>No items found.</div>
               </div> */}
-              <div
+              {/* <div
                 role="navigation"
                 aria-label="List"
                 className="w-pagination-wrapper pagination"
@@ -404,7 +406,7 @@ const WorthifyForecastingPage = () => {
                   <div className="w-inline-block">Next</div>
                   <div className="pagination-link-icon-right"></div>
                 </a>
-              </div>
+              </div> */}
             </div>
             <div className="bg-gradient-blur-wrapper blog">
               <div className="bg-gradient-blur-circle-3 pink" />
