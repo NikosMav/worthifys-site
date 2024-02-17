@@ -16,6 +16,12 @@ const WorthifyForecastingPage = () => {
   html.setAttribute("data-wf-page", "65a4292a06a5231e6e3e766c");
   html.setAttribute("data-wf-site", "65a4292906a5231e6e3e760e");
 
+  const [activeItem, setActiveItem] = useState(null);
+  // Handler to set active item
+  const handleItemClick = (itemName) => {
+    setActiveItem(itemName);
+  };
+
   return (
     <div className="page-wrapper overflow-hidden">
       <Header />
@@ -267,7 +273,10 @@ const WorthifyForecastingPage = () => {
             >
               <div role="list" className="blog-grid w-dyn-items">
                 <div role="listitem" className="post-item w-dyn-item">
-                  <a href="#" className="card post-item w-inline-block">
+                  <div
+                    onClick={() => handleItemClick("opel-corsa")}
+                    className="card post-item w-inline-block"
+                  >
                     <div className="image-wrapper card-post-item">
                       <img
                         src="images/2016-Opel-Corsa.jpg"
@@ -318,10 +327,13 @@ const WorthifyForecastingPage = () => {
                         </div>
                       </div>
                     </div>
-                  </a>
+                  </div>
                 </div>
                 <div role="listitem" className="post-item w-dyn-item">
-                  <a href="#" className="card post-item w-inline-block">
+                  <div
+                    onClick={() => handleItemClick("toyota-yaris")}
+                    className="card post-item w-inline-block"
+                  >
                     <div className="image-wrapper card-post-item">
                       <img
                         src="images/2016-toyota-yaris.jpg"
@@ -374,7 +386,7 @@ const WorthifyForecastingPage = () => {
                         </div>
                       </div>
                     </div>
-                  </a>
+                  </div>
                 </div>
               </div>
               {/* <div className="empty-state w-dyn-empty">
@@ -413,6 +425,16 @@ const WorthifyForecastingPage = () => {
               <div className="bg-gradient-blur-circle-2 blue-2 blog" />
               <div className="bg-gradient-blur-circle-1 pink" />
             </div>
+            {activeItem === "opel-corsa" && (
+              <div className="additional-content">
+                <h2 className="title blog-2">Opel Corsa 2016 Charts</h2>
+              </div>
+            )}
+            {activeItem === "toyota-yaris" && (
+              <div className="additional-content">
+                <h2 className="title blog-2">Toyota Yaris 2016 Charts</h2>
+              </div>
+            )}
           </div>
         </section>
       </main>

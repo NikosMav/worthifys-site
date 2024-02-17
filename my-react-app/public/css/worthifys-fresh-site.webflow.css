@@ -17,6 +17,32 @@
   --shadow-card-large-dark: rgba(0, 0, 0, .45);
 }
 
+/* Style for the scrollbar track (background) */
+::-webkit-scrollbar {
+  width: 10px; /* Adjust the width of the scrollbar */
+  background-color: #2e2e2e; /* Dark background color */
+  border-radius: 10px; /* Make the track edges rounded */
+}
+
+/* Style for the scrollbar handle (thumb) */
+::-webkit-scrollbar-thumb {
+  background-color: #555; /* Darker color for the scrollbar handle */
+  border-radius: 10px; /* Increase border-radius for more rounded edges */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Style for the scrollbar handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #777; /* Slightly lighter color on hover */
+  border-radius: 10px; /* Maintain rounded edges on hover */
+}
+
+/* Firefox scrollbar styling */
+/* * {
+  scrollbar-width: thin;
+  scrollbar-color: #555 #2e2e2e;
+} */
+
 .w-layout-grid {
   grid-row-gap: 16px;
   grid-column-gap: 16px;
@@ -1832,7 +1858,7 @@ figcaption {
 .paragraph-large.home-hero.small {
   margin-top: 45px;
   margin-bottom: 0;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.4em;
 }
 
@@ -2790,6 +2816,14 @@ figcaption {
   align-items: center;
 }
 
+/* Additional Content Styling */
+.additional-content {
+  margin-top: 50px; /* Add some space above the additional content */
+  text-align: center; /* Center the content */
+  position: relative; /* Ensure it's positioned correctly within the container */
+  z-index: 10; /* Set a high z-index to keep it above background effects */
+}
+
 .card {
   background-color: var(--secondary-5);
   box-shadow: 0 5px 14px 0 var(--shadow-card-default);
@@ -2861,6 +2895,7 @@ figcaption {
   transition: box-shadow .3s, transform .3s;
   display: flex;
   transform: translate(0);
+  cursor: pointer;
 }
 
 .card.post-item:hover {
@@ -3334,6 +3369,10 @@ figcaption {
 .title.blog {
   margin-bottom: 20px;
   margin-right: 30px;
+}
+
+.title.blog-2 {
+  font-size: 30px;
 }
 
 .title.blog-hero {
@@ -4312,7 +4351,7 @@ figcaption {
 }
 
 .container-medium-940px.home-hero.small {
-  max-width: 1100px;
+  max-width: 1200px;
   margin-top: 60px;
 }
 
@@ -4351,7 +4390,7 @@ figcaption {
   margin-bottom: 102px;
   display: flex;
   position: relative;
-  max-width: 940px;
+  max-width: 1000px;
   cursor: pointer; /* Change cursor to indicate it's clickable */
 }
 
@@ -7423,7 +7462,7 @@ figcaption {
 
 .display-1-copy.small {
   margin-bottom: 0;
-  font-size: 41px;
+  font-size: 45px;
   line-height: 1.5em;
 }
 
