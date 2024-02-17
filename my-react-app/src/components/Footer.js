@@ -29,23 +29,23 @@ const Footer = () => {
           </div>
           <div className="footer-v3-col-right">
             <div className="social-media-wrapper v3">
-              <a class="social-media-link mg-bottom-0">
-                <i class="fab fa-facebook-f"></i>
+              <a className="social-media-link mg-bottom-0">
+                <i className="fab fa-facebook-f"></i>
               </a>
-              <a class="social-media-link icon-size-13px mg-bottom-0">
-                <i class="fab fa-twitter"></i>
+              <a className="social-media-link icon-size-13px mg-bottom-0">
+                <i className="fab fa-twitter"></i>
               </a>
-              <a class="social-media-link icon-size-15px mg-bottom-0">
-                <i class="fab fa-instagram"></i>
+              <a className="social-media-link icon-size-15px mg-bottom-0">
+                <i className="fab fa-instagram"></i>
               </a>
-              <a class="social-media-link icon-size-13px mg-bottom-0">
-                <i class="fab fa-linkedin-in"></i>
+              <a className="social-media-link icon-size-13px mg-bottom-0">
+                <i className="fab fa-linkedin-in"></i>
               </a>
-              <a class="social-media-link icon-size-13px mg-bottom-0">
-                <i class="fab fa-youtube"></i>
+              <a className="social-media-link icon-size-13px mg-bottom-0">
+                <i className="fab fa-youtube"></i>
               </a>
-              <a class="social-media-link last">
-                <i class="fab fa-whatsapp"></i>
+              <a className="social-media-link last">
+                <i className="fab fa-whatsapp"></i>
               </a>
             </div>
           </div>

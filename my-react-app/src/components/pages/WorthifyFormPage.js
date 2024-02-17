@@ -5,11 +5,26 @@ import GroupedAutocomplete from "../Autocomplete";
 import PostalCodeField from "../PostalCodeField";
 import DescriptionInput from "../DescriptionInput";
 import carData from "../../carData.json";
+import { useLocation } from "react-router-dom";
 
 //             brand,model,displ,cat,fuel,trans,doors
 const array = ["*", "*", "*", "*", "*", "*", "*"];
 
 const WorthifyFormPage = () => {
+  // Hook to access the current location
+  const location = useLocation();
+
+  // Initialize state
+  const [selectedBrand, setSelectedBrand] = useState("");
+  const [selectedModel, setSelectedModel] = useState("");
+
+  // Extract brand and model from URL parameters
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    setSelectedBrand(queryParams.get("brand") || "");
+    setSelectedModel(queryParams.get("model") || "");
+  }, [location.search]); // Listen for changes in search parameters
+
   const [cars, setCars] = useState({
     Brand: [],
     Model: [],
@@ -56,6 +71,16 @@ const WorthifyFormPage = () => {
     }
     // console.log(value);
     array[i] = value.title;
+
+    // Special handling for Brand and Model based on their index (0 for Brand, 1 for Model)
+    if (i === 0) {
+      // Brand
+      setSelectedBrand(value.title);
+    } else if (i === 1) {
+      // Model
+      setSelectedModel(value.title);
+    }
+
     // console.log(array)
     const fetchData = async () => {
       try {
@@ -70,7 +95,7 @@ const WorthifyFormPage = () => {
         const data = await response.json();
         // console.log(data)
         setCars(data);
-        console.log(cars);
+        // console.log(cars);
         // console.log(cars.Cubic);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -85,7 +110,7 @@ const WorthifyFormPage = () => {
   const handleClearForm = () => {
     // This will force the form or components with this key to re-render
     setResetKey((prevKey) => prevKey + 1);
-    for(const i in array){
+    for (const i in array) {
       array[i] = "*";
     }
     const fetchData = async () => {
@@ -203,6 +228,7 @@ const WorthifyFormPage = () => {
                             key={`grouped-autocomplete-brand-${resetKey}`}
                             optionsData={cars.Brand}
                             label="Select Brand"
+                            value={selectedBrand} // Pass the selected brand
                             onChange={(event, value) =>
                               handleChange(event, value, 0)
                             } // Add onChange handler
@@ -219,6 +245,7 @@ const WorthifyFormPage = () => {
                             key={`grouped-autocomplete-model-${resetKey}`}
                             optionsData={cars.Model}
                             label="Select Model"
+                            value={selectedModel} // Pass the selected model
                             onChange={(event, value) =>
                               handleChange(event, value, 1)
                             } // Add onChange handler

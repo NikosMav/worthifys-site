@@ -77,6 +77,7 @@ const CustomTextField = styled(TextField)({
 export default function GroupedAutocomplete({
   optionsData,
   label,
+  value,
   onChange,
   disabled,
 }) {
@@ -88,6 +89,7 @@ export default function GroupedAutocomplete({
     };
   });
 
+  // Handle change internally, passing event and value to parent's onChange
   const handleChange = (event, value) => {
     if (onChange) {
       onChange(event, value);
@@ -107,6 +109,7 @@ export default function GroupedAutocomplete({
       )}
       groupBy={(option) => option.firstLetter}
       getOptionLabel={(option) => option.title}
+      value={options.find((option) => option.title === value) || null} // Adjust this line
       isOptionEqualToValue={isOptionEqualToValue}
       renderInput={(params) => (
         <CustomTextField

@@ -95,7 +95,7 @@ const WorthifyHomePage = () => {
   // Navigation to different pages
   const navigate = useNavigate();
   const redirectToForm = () => {
-    navigate("/form-page");
+    navigate(`/form-page?brand=${selectedBrand}&model=${selectedModel}`);
   };
   const redirectToChartPage = () => {
     navigate("/chart-page");
@@ -152,6 +152,7 @@ const WorthifyHomePage = () => {
     }
 
     // Proceed with form submission logic (e.g., API call)
+    redirectToForm();
   };
 
   useEffect(() => {
