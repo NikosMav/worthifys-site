@@ -114,98 +114,6 @@ const WorthifyForecastingPage = () => {
               </div>
             </div>
           </div>
-          <div className="container-default blog-hero w-container">
-            <div
-              data-w-id="4847107b-de18-acb3-a5ee-b1d7d4e4a6a0"
-              style={{
-                WebkitTransform:
-                  "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
-                MozTransform:
-                  "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
-                msTransform:
-                  "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
-                transform:
-                  "translate3d(0, 40px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
-                opacity: 0,
-              }}
-              className="post-featured-collection-list-wrapper w-dyn-list"
-            >
-              <div role="list" className="w-dyn-items">
-                <div role="listitem" className="post-featured-item w-dyn-item">
-                  <a
-                    data-w-id="26721aca-885b-4a42-3eeb-399e56c114db"
-                    href="#"
-                    className="post-featured-item-wrapper w-inline-block"
-                  >
-                    <div className="card post-featured-item-content">
-                      <div className="card-post-item-about-wrapper">
-                        <div className="card-post-item-about-content">
-                          <img
-                            src="images/icon-1-post-about-dark-template.svg"
-                            loading="eager"
-                            alt="Calendar Icon - Dark X Webflow Template"
-                            className="image card-post-item-about-icon"
-                          />
-                          <div />
-                        </div>
-                        <div className="card-post-item-about-content">
-                          <img
-                            src="images/icon-2-post-about-dark-template.svg"
-                            loading="eager"
-                            alt="Clock Icon - Dark X Webflow Template"
-                            className="image card-post-item-about-icon"
-                          />
-                          <div />
-                          <div>&nbsp;min read</div>
-                        </div>
-                      </div>
-                      <h2 className="title card-post-featured-item" />
-                      <p className="paragraph card-post-featured-item" />
-                      <div className="card-post-featured-item-content-bottom">
-                        <div className="image-wrapper card-post-featured-item-author">
-                          <img
-                            src=""
-                            loading="eager"
-                            alt=""
-                            className="image card-post-featured-item-author"
-                          />
-                        </div>
-                        <div className="card-post-featured-item-author-content">
-                          <div className="card-post-featured-item-author-name" />
-                          <div className="card-post-featured-item-author-rol" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="image-wrapper post-featured-item-image">
-                      <img
-                        src=""
-                        loading="eager"
-                        alt=""
-                        className="image post-featured-item-image"
-                      />
-                      <div className="card-post-item-category-wrapper post-featured-item-category">
-                        <img
-                          src=""
-                          loading="eager"
-                          alt=""
-                          className="image card-post-item-category-icon"
-                        />
-                        <div className="card-post-item-category-text" />
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              {/* <div className="empty-state w-dyn-empty">
-                <div>No items found.</div>
-              </div> */}
-            </div>
-            <div className="bg-gradient-blur-wrapper big blog-hero">
-              <div className="bg-gradient-blur-circle-3 pink big" />
-              <div className="bg-gradient-blur-circle-2 blue-2" />
-              <div className="bg-gradient-blur-circle-1 purple-2 big" />
-            </div>
-          </div>
         </section>
         <div className="container-default w-container">
           <div className="divider" />
@@ -231,14 +139,14 @@ const WorthifyForecastingPage = () => {
               <div className="categories-collection-list-wrapper w-dyn-list">
                 <div role="list" className="categories-wrapper w-dyn-items">
                   <div role="listitem" className="category-item w-dyn-item">
-                    <a
+                    <button
                       href="blog.html"
                       aria-current="page"
                       className="button-secondary button-category all w-inline-block w--current"
                     >
                       <div className="button-category-text">All</div>
-                    </a>
-                    <a
+                    </button>
+                    <button
                       href="#"
                       className="button-secondary button-category w-inline-block"
                     >
@@ -249,7 +157,7 @@ const WorthifyForecastingPage = () => {
                         className="image button-category-icon"
                       />
                       <div className="button-category-text" />
-                    </a>
+                    </button>
                   </div>
                 </div>
                 <div className="empty-state small w-dyn-empty">

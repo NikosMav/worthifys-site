@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -35,24 +35,24 @@ const Header = () => {
               <nav role="navigation" className="nav-menu w-nav-menu">
                 <ul role="list" className="header-navigation w-list-unstyled">
                   <li className="nav-item-wrapper">
-                    <Link to="/" className="nav-link w--current">
+                    <NavLink to="/" className="nav-link w--current">
                       Home
-                    </Link>
+                    </NavLink>
                   </li>
                   <li className="nav-item-wrapper">
-                    <Link to="/chart-page" className="nav-link">
+                    <NavLink to="/chart-page" className="nav-link">
                       Charts
-                    </Link>
+                    </NavLink>
                   </li>
                   <li className="nav-item-wrapper">
-                    <Link to="/forecasting-page" className="nav-link">
+                    <NavLink to="/forecasting-page" className="nav-link">
                       Forecasting
-                    </Link>
+                    </NavLink>
                   </li>
                   <li className="nav-item-wrapper">
-                    <Link to="/about-page" className="nav-link">
+                    <NavLink to="/about-page" className="nav-link">
                       About
-                    </Link>
+                    </NavLink>
                   </li>
                   {/* More internal navigation links */}
                 </ul>
