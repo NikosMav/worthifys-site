@@ -2816,13 +2816,28 @@ figcaption {
   align-items: center;
 }
 
-/* Additional Content Styling */
 .additional-content {
-  margin-top: 50px; /* Add some space above the additional content */
-  text-align: center; /* Center the content */
-  position: relative; /* Ensure it's positioned correctly within the container */
-  z-index: 10; /* Set a high z-index to keep it above background effects */
+  background-color: #191919; /* White background */
+  opacity: 1;
+  padding: 20px; /* Padding around the content */
+  border-radius: 8px; /* Rounded corners for the card effect */
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  margin: 20px auto; /* Center the card and add margin around it */
+  max-width: 95%; /* Maximum width of the card */
+  box-sizing: border-box; /* Include padding in the box's width */
 }
+
+.forecast-line-chart-div {
+  position: relative;
+  z-index: 1;
+  margin-top: 80px;
+}
+
+.post-item.active {
+  border: 5px solid #333; /* Example of highlighting */
+  /* background-color: #f0f0f0; */
+}
+
 
 .card {
   background-color: var(--secondary-5);
