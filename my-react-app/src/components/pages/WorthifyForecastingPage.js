@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
+import ForecastingLineChart from "../charts/ForecastingLineChart";
 
 const WorthifyForecastingPage = () => {
   // webflow.js
@@ -275,7 +276,9 @@ const WorthifyForecastingPage = () => {
                 <div role="listitem" className="post-item w-dyn-item">
                   <div
                     onClick={() => handleItemClick("opel-corsa")}
-                    className="card post-item w-inline-block"
+                    className={`card post-item w-inline-block ${
+                      activeItem === "opel-corsa" ? "active" : ""
+                    }`}
                   >
                     <div className="image-wrapper card-post-item">
                       <img
@@ -332,7 +335,9 @@ const WorthifyForecastingPage = () => {
                 <div role="listitem" className="post-item w-dyn-item">
                   <div
                     onClick={() => handleItemClick("toyota-yaris")}
-                    className="card post-item w-inline-block"
+                    className={`card post-item w-inline-block ${
+                      activeItem === "toyota-yaris" ? "active" : ""
+                    }`}
                   >
                     <div className="image-wrapper card-post-item">
                       <img
@@ -425,16 +430,40 @@ const WorthifyForecastingPage = () => {
               <div className="bg-gradient-blur-circle-2 blue-2 blog" />
               <div className="bg-gradient-blur-circle-1 pink" />
             </div>
-            {activeItem === "opel-corsa" && (
-              <div className="additional-content">
-                <h2 className="title blog-2">Opel Corsa 2016 Charts</h2>
-              </div>
-            )}
-            {activeItem === "toyota-yaris" && (
-              <div className="additional-content">
-                <h2 className="title blog-2">Toyota Yaris 2016 Charts</h2>
-              </div>
-            )}
+            <div className="forecast-line-chart-div">
+              {activeItem === "opel-corsa" && (
+                <div className="additional-content">
+                  <p>Price Forecasting Chart</p>
+                  <div
+                    style={{
+                      height: "2px",
+                      backgroundColor: "#333",
+                      width: "12%",
+                      marginTop: "-10px",
+                      marginBottom: "15px",
+                    }}
+                  ></div>
+                  <h2 className="title blog-2">Opel Corsa 2016</h2>
+                  <ForecastingLineChart />
+                </div>
+              )}
+              {activeItem === "toyota-yaris" && (
+                <div className="additional-content">
+                  <p>Price Forecasting Chart</p>
+                  <div
+                    style={{
+                      height: "2px",
+                      backgroundColor: "#333",
+                      width: "12%",
+                      marginTop: "-10px",
+                      marginBottom: "15px",
+                    }}
+                  ></div>
+                  <h2 className="title blog-2">Toyota Yaris 2016</h2>
+                  <ForecastingLineChart />
+                </div>
+              )}
+            </div>
           </div>
         </section>
       </main>
