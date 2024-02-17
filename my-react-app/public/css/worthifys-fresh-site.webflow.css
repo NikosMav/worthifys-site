@@ -1991,6 +1991,11 @@ figcaption {
   display: block;
 }
 
+.button-primary.small.model {
+  display: flex;
+  
+}
+
 .button-secondary {
   background-color: var(--neutral-700);
   color: var(--neutral-100);
@@ -2146,6 +2151,73 @@ figcaption {
   padding-left: 0;
   list-style-type: none;
   display: flex;
+}
+
+/* styles.css */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.90); /* Increase the opacity */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: var(--neutral-800);
+  color: var(--neutral-100);
+  padding: 60px;
+  border: 2px solid;
+  border-color: #333;
+  border-radius: 15px; /* Make the edges rounder */
+  width: auto; /* Adjust width to fit content */
+  max-width: 800px;
+  box-shadow: 0 10px 25px var(--shadow-card-large-dark); /* Larger shadow for more depth */
+  position: relative;
+  z-index: 1001;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.modal-close-button {
+  align-self: flex-end;
+  background: var(--secondary-1);
+  color: var(--neutral-100);
+  border: none;
+  border-radius: 5px; /* Slightly rounded edges for the button */
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.modal-title {
+  color: white;
+  margin-bottom: 20px;
+  text-align: center; /* Center the title */
+  font-size: 1.5rem; /* Larger font size */
+}
+
+/* Additional styles, such as transitions for smooth opening/closing */
+.modal-overlay, .modal-content {
+  transition: opacity 0.25s ease-in-out;
+}
+
+/* Initial state when the modal is not active */
+.modal-overlay {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* Active state when the modal is displayed */
+.modal-overlay.active {
+  visibility: visible;
+  opacity: 1;
 }
 
 .nav-item-wrapper {
@@ -4303,7 +4375,8 @@ figcaption {
   border-radius: 10000px;
   padding: 2px;
   transition: transform .3s;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
   transform: scale3d(1, 1, 1.01);
   box-shadow: 0 3px 7px rgba(19, 17, 26, .14);
 }

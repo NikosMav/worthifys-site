@@ -5,6 +5,7 @@ import GroupedAutocomplete from "../Autocomplete";
 import PostalCodeField from "../PostalCodeField";
 import DescriptionInput from "../DescriptionInput";
 import carData from "../../carData.json";
+import Modal from "../Modal";
 import { useLocation } from "react-router-dom";
 // import { colors } from "@mui/material";
 import colors from "../charts/data/colors.json";
@@ -203,6 +204,22 @@ const WorthifyFormPage = () => {
     console.log(cars);
   };
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [estimatedValue, setEstimatedValue] = useState("");
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "visible";
+    }
+
+    // Cleanup function to set overflow back to default when the component unmounts
+    return () => {
+      document.body.style.overflow = "visible";
+    };
+  }, [isModalOpen]); // Only re-run the effect if isModalOpen changes
+
   const handleSubmission = (event) => {
     console.log("YEAAAH BUDDY");
     event.preventDefault();
@@ -229,7 +246,9 @@ const WorthifyFormPage = () => {
       }
     };
 
-    fetchData();
+    setEstimatedValue("$10,000"); // Example value
+    setIsModalOpen(true);
+    // fetchData();
     // console.log(cars);
   };
 
@@ -256,10 +275,17 @@ const WorthifyFormPage = () => {
     setDescription(event.target.value);
   };
 
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    // Form submission logic here
-  };
+  // const handleFormSubmit = (event) => {
+  //   event.preventDefault();
+  //   // Form submission logic here
+  // };
+
+  // const handleFormSubmit = (e) => {
+  //   e.preventDefault();
+  //   // Your logic to calculate the estimated value
+  //   setEstimatedValue("$10,000"); // Example value
+  //   setIsModalOpen(true);
+  // };
 
   return (
     <div className="bg-neutral-800">
@@ -542,7 +568,7 @@ const WorthifyFormPage = () => {
                             htmlFor="zipcode"
                             className="field-label form-2"
                           >
-                            Postal Code
+                            Location
                           </label>
                           <PostalCodeField
                             key={`grouped-autocomplete-postalcode-${resetKey}`}
@@ -598,6 +624,14 @@ const WorthifyFormPage = () => {
                           />
                         </div>
                       </form>
+                      <Modal
+                        isOpen={isModalOpen}
+                        onClose={() => setIsModalOpen(false)}
+                      >
+                        <p className="modal-title">
+                          Estimated Value: {estimatedValue}
+                        </p>
+                      </Modal>
                       <div className="success-message w-form-done">
                         <div>
                           Your message has been submitted. <br />
