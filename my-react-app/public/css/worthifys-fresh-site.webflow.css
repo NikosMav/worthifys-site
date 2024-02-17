@@ -2171,7 +2171,7 @@ figcaption {
   background-color: var(--neutral-800);
   color: var(--neutral-100);
   padding: 60px;
-  border: 2px solid;
+  border: 1px solid;
   border-color: #333;
   border-radius: 15px; /* Make the edges rounder */
   width: auto; /* Adjust width to fit content */
@@ -6551,6 +6551,11 @@ figcaption {
 
 .card-plan-item-button-wrapper {
   margin-top: auto;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 .card-plan-item-feature-wrapper {

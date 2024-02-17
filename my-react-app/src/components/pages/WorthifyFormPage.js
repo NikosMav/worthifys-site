@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Lottie from "react-lottie";
 import Header from "../Header";
 import Footer from "../Footer";
 import GroupedAutocomplete from "../Autocomplete";
@@ -9,10 +10,23 @@ import Modal from "../Modal";
 import { useLocation } from "react-router-dom";
 // import { colors } from "@mui/material";
 import colors from "../charts/data/colors.json";
+import animationData from "../charts/data/Animation - 1708211745164.json";
 //             brand,model,displ,cat,fuel,trans,doors,color,hp,merchant,seats
 const array = ["*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*"];
 
 const WorthifyFormPage = () => {
+  useEffect(() => {
+    window.Webflow && window.Webflow.destroy();
+    window.Webflow && window.Webflow.ready();
+    window.Webflow && window.Webflow.require("ix2").init();
+    document.dispatchEvent(new Event("readystatechange"));
+  }, []);
+
+  // html node
+  const html = document.getElementsByTagName("html")[0];
+  html.setAttribute("data-wf-page", "65a4292a06a5231e6e3e7670");
+  html.setAttribute("data-wf-site", "65a4292906a5231e6e3e760e");
+
   // Hook to access the current location
   const location = useLocation();
 
@@ -205,6 +219,7 @@ const WorthifyFormPage = () => {
     console.log(cars);
   };
 
+  const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [estimatedValue, setEstimatedValue] = useState("");
 
@@ -221,14 +236,57 @@ const WorthifyFormPage = () => {
     };
   }, [isModalOpen]); // Only re-run the effect if isModalOpen changes
 
+  useEffect(() => {
+    // Here you would fetch the estimated value and then set loading to false
+    const fetchEstimatedValue = async () => {
+      // Simulate fetching data with a timeout
+      setTimeout(() => {
+        setEstimatedValue("$10,000"); // Replace with actual value from API call
+        setLoading(false);
+      }, 3000); // Simulates a 3 second API call
+    };
+
+    if (isModalOpen) {
+      fetchEstimatedValue();
+    }
+  }, [isModalOpen]);
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
   const handleSubmission = (event) => {
     console.log("YEAAAH BUDDY");
     event.preventDefault();
-    const array2 = [selectedBrand, selectedModel, selectedVariant, selectedEngine, selectedDate, selectedCategory, selectedFuel, selectedTrans, selectedHP, selectedMileage, selectedPostal, selectedDesc];
-    for (const i in array2) {
-      if(array2[i] === "" && (i !== 2 && i !== 11)){
-        console.log("Please fill all the required fields!")
-        return;
+    const array2 = [
+      selectedBrand,
+      selectedModel,
+      selectedVariant,
+      selectedEngine,
+      selectedDate,
+      selectedCategory,
+      selectedFuel,
+      selectedTrans,
+      selectedHP,
+      selectedColor,
+      selectedMileage,
+      selectedPostal,
+      selectedDesc,
+    ];
+    for (let i = 0; i < array2.length; i++) {
+      console.log(i);
+      console.log(array2[i]);
+      if (i === 2 || i === 12) {
+        continue;
+      }
+      if (array2[i] === "" || array2[i] === "*") {
+        console.log("Please fill all the required fields!");
+        return; // Exits the function. Use 'break' if you only want to exit the loop.
       }
     }
     const fetchData = async () => {
@@ -258,18 +316,6 @@ const WorthifyFormPage = () => {
     fetchData();
     // console.log(cars);
   };
-
-  useEffect(() => {
-    window.Webflow && window.Webflow.destroy();
-    window.Webflow && window.Webflow.ready();
-    window.Webflow && window.Webflow.require("ix2").init();
-    document.dispatchEvent(new Event("readystatechange"));
-  }, []);
-
-  // html node
-  const html = document.getElementsByTagName("html")[0];
-  html.setAttribute("data-wf-page", "65a4292a06a5231e6e3e7670");
-  html.setAttribute("data-wf-site", "65a4292906a5231e6e3e760e");
 
   const handlePostalCodeChange = (zipCode) => {
     // Handle zip code value
@@ -633,11 +679,22 @@ const WorthifyFormPage = () => {
                       </form>
                       <Modal
                         isOpen={isModalOpen}
-                        onClose={() => setIsModalOpen(false)}
+                        onClose={() => {
+                          setIsModalOpen(false);
+                          setLoading(true);
+                        }}
                       >
-                        <p className="modal-title">
-                          Estimated Value: {estimatedValue}
-                        </p>
+                        {loading ? (
+                          <Lottie
+                            options={defaultOptions}
+                            height={200}
+                            width={200}
+                          />
+                        ) : (
+                          <p className="modal-title">
+                            Estimated Value: {estimatedValue}
+                          </p>
+                        )}
                       </Modal>
                       <div className="success-message w-form-done">
                         <div>

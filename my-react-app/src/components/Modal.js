@@ -11,13 +11,15 @@ const Modal = ({ isOpen, onClose, children }) => {
     >
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         {children}
-        <div className="button-primary-gradient contact-form">
-          <button
-            className="button-primary small w-button modal"
-            onClick={onClose}
-          >
-            Close
-          </button>
+        <div className="button-wrapper">
+          <div className="button-primary-gradient contact-form">
+            <button
+              className="button-primary small w-button modal"
+              onClick={onClose}
+            >
+              Close
+            </button>
+          </div>
         </div>
       </div>
     </div>
