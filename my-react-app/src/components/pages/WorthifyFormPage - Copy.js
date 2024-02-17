@@ -5,7 +5,6 @@ import GroupedAutocomplete from "../Autocomplete";
 import PostalCodeField from "../PostalCodeField";
 import DescriptionInput from "../DescriptionInput";
 import carData from "../../carData.json";
-import Modal from "../Modal";
 import { useLocation } from "react-router-dom";
 // import { colors } from "@mui/material";
 import colors from "../charts/data/colors.json";
@@ -91,7 +90,6 @@ const WorthifyFormPage = () => {
     if (value === null || value === undefined) {
       value = { firstLetter: "*", title: "*" };
     }
-    // console.log(value);
 
     // Special handling for Brand and Model based on their index (0 for Brand, 1 for Model)
     if (i === 0) {
@@ -124,9 +122,8 @@ const WorthifyFormPage = () => {
       setSelectedDate(value.title);
       return;
     }
-
+    // console.log(value);
     array[i] = value.title;
-
     //let's keep the color options
     // colors = cars.colors
 
@@ -205,32 +202,11 @@ const WorthifyFormPage = () => {
     console.log(cars);
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [estimatedValue, setEstimatedValue] = useState("");
-
-  useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "visible";
-    }
-
-    // Cleanup function to set overflow back to default when the component unmounts
-    return () => {
-      document.body.style.overflow = "visible";
-    };
-  }, [isModalOpen]); // Only re-run the effect if isModalOpen changes
-
   const handleSubmission = (event) => {
     console.log("YEAAAH BUDDY");
     event.preventDefault();
+    //            brand,model,displ,cat,fuel,trans,doors,color,hp,merchant,seats
     const array2 = [selectedBrand, selectedModel, selectedVariant, selectedEngine, selectedDate, selectedCategory, selectedFuel, selectedTrans, selectedHP, selectedMileage, selectedPostal, selectedDesc];
-    for (const i in array2) {
-      if(array2[i] === "" && (i !== 2 && i !== 11)){
-        console.log("Please fill all the required fields!")
-        return;
-      }
-    }
     const fetchData = async () => {
       try {
         const response = await fetch(
@@ -253,8 +229,6 @@ const WorthifyFormPage = () => {
       }
     };
 
-    setEstimatedValue("$10,000"); // Example value
-    setIsModalOpen(true);
     fetchData();
     // console.log(cars);
   };
@@ -280,19 +254,13 @@ const WorthifyFormPage = () => {
   const [description, setDescription] = useState("");
   const handleDescriptionChange = (event) => {
     setSelectedDesc(event.target.value);
+    console.log(selectedDesc)
   };
 
-  // const handleFormSubmit = (event) => {
-  //   event.preventDefault();
-  //   // Form submission logic here
-  // };
-
-  // const handleFormSubmit = (e) => {
-  //   e.preventDefault();
-  //   // Your logic to calculate the estimated value
-  //   setEstimatedValue("$10,000"); // Example value
-  //   setIsModalOpen(true);
-  // };
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    // Form submission logic here
+  };
 
   return (
     <div className="bg-neutral-800">
@@ -575,7 +543,7 @@ const WorthifyFormPage = () => {
                             htmlFor="zipcode"
                             className="field-label form-2"
                           >
-                            Location
+                            Postal Code
                           </label>
                           <PostalCodeField
                             key={`grouped-autocomplete-postalcode-${resetKey}`}
@@ -631,14 +599,6 @@ const WorthifyFormPage = () => {
                           />
                         </div>
                       </form>
-                      <Modal
-                        isOpen={isModalOpen}
-                        onClose={() => setIsModalOpen(false)}
-                      >
-                        <p className="modal-title">
-                          Estimated Value: {estimatedValue}
-                        </p>
-                      </Modal>
                       <div className="success-message w-form-done">
                         <div>
                           Your message has been submitted. <br />
