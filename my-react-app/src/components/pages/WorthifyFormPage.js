@@ -6,9 +6,10 @@ import PostalCodeField from "../PostalCodeField";
 import DescriptionInput from "../DescriptionInput";
 import carData from "../../carData.json";
 import { useLocation } from "react-router-dom";
+import { colors } from "@mui/material";
 
-//             brand,model,displ,cat,fuel,trans,doors
-const array = ["*", "*", "*", "*", "*", "*", "*"];
+//             brand,model,displ,cat,fuel,trans,doors,color,hp,merchant,seats
+const array = ["*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*"]; 
 
 const WorthifyFormPage = () => {
   // Hook to access the current location
@@ -17,6 +18,17 @@ const WorthifyFormPage = () => {
   // Initialize state
   const [selectedBrand, setSelectedBrand] = useState("");
   const [selectedModel, setSelectedModel] = useState("");
+  const [selectedVariant, setSelectedVariant] = useState("");
+  const [selectedEngine, setSelectedEngine] = useState("");
+  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedFuel, setSelectedFuel] = useState("");
+  const [selectedTrans, setSelectedTrans] = useState("");
+  const [selectedHP, setSelectedHP] = useState("");
+  const [selectedColor, setSelectedColor] = useState("");
+  const [selectedMileage, setSelectedMileage] = useState("");
+  const [selectedPostal, setSelectedPostal] = useState("");
+  const [selectedDesc, setSelectedDesc] = useState("");
 
   // Extract brand and model from URL parameters
   useEffect(() => {
@@ -34,11 +46,15 @@ const WorthifyFormPage = () => {
     Fuel: [],
     Transmission: [],
     Doors: [],
+    Color: [],
+    Horsepower: [],
+    Merchant: [],
+    Seats: [],
     //Seats: [],
   });
 
   useEffect(() => {
-    console.log("YEAAAH BUDDY");
+    console.log(array);
     const fetchData = async () => {
       try {
         const response = await fetch(
@@ -52,17 +68,23 @@ const WorthifyFormPage = () => {
             body: JSON.stringify({ array: array }),
           }
         );
+        console.log(array);
+
         const data = await response.json();
         // console.log(data)
+        console.log("AY YO")
+        // console.log(data)
         setCars(data);
-        // console.log(cars.Cubic);
+
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
-    console.log(cars);
+    // console.log(cars);
+    // console.log(cars.hp);
+    // console.log(cars.Cubic);
   }, []); //change the [] if you want to loop it somehow
 
   const handleChange = (event, value, i) => {
@@ -79,7 +101,33 @@ const WorthifyFormPage = () => {
     } else if (i === 1) {
       // Model
       setSelectedModel(value.title);
+    } else if (i === 2){
+      // Engine
+      setSelectedEngine(value.title);
+    } else if (i === 3){
+      // Category
+      setSelectedCategory(value.title);
+    } else if (i === 4){
+      // Fuel
+      setSelectedFuel(value.title);
+    } else if (i === 5){
+      // Transmission
+      setSelectedTrans(value.title);
+    } else if (i === 7){
+      // Color
+      setSelectedColor(value.title);
+      return; // let's not destroy our options with the colors
+    } else if (i === 8){
+      // HP
+      setSelectedHP(value.title);
+    } else if (i === 20){
+      // Date
+      setSelectedDate(value.title);
+      return;
     }
+
+    //let's keep the color options
+    colors = cars.colors
 
     // console.log(array)
     const fetchData = async () => {
@@ -102,6 +150,10 @@ const WorthifyFormPage = () => {
       }
     };
     fetchData();
+    cars.colors = colors;
+    console.log(cars)
+    console.log(cars.Horsepower);
+    console.log(cars.Cubic);
   };
 
   //Initialize Reset Key State
@@ -110,6 +162,19 @@ const WorthifyFormPage = () => {
   const handleClearForm = () => {
     // This will force the form or components with this key to re-render
     setResetKey((prevKey) => prevKey + 1);
+    setSelectedBrand("")
+    setSelectedModel("")
+    setSelectedVariant("")
+    setSelectedEngine("")
+    setSelectedDate("")
+    setSelectedCategory("")
+    setSelectedFuel("")
+    setSelectedTrans("")
+    setSelectedHP("")
+    setSelectedColor("")
+    setSelectedMileage("")
+    setSelectedPostal("")
+    setSelectedDesc("")
     for (const i in array) {
       array[i] = "*";
     }
@@ -139,6 +204,36 @@ const WorthifyFormPage = () => {
     console.log(cars);
   };
 
+  const handleSubmission = (event) => {
+    console.log("YEAAAH BUDDY");
+    event.preventDefault();
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "http://16.170.253.186:443/getEvaluation",
+          {
+            // URL of your Flask server
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ array: array }),
+          }
+        );
+        const data = await response.json();
+        console.log(data)
+        // setCars(data);
+        // console.log(cars.Cubic);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+    // console.log(cars);
+  };
+
   useEffect(() => {
     window.Webflow && window.Webflow.destroy();
     window.Webflow && window.Webflow.ready();
@@ -153,6 +248,7 @@ const WorthifyFormPage = () => {
 
   const handlePostalCodeChange = (zipCode) => {
     // Handle zip code value
+    setSelectedPostal(zipCode);
     console.log(zipCode);
   };
 
@@ -215,7 +311,9 @@ const WorthifyFormPage = () => {
                         className="card-contact-form form-2"
                         data-wf-page-id="65a4292a06a5231e6e3e7670"
                         data-wf-element-id="13235370-6615-b8f7-1966-ee3fe42ff50b"
-                        //onSubmit={handleFormSubmit}
+                        onSubmit={(event, value) =>{
+                          handleSubmission(event)
+                        }}
                       >
                         <div>
                           <label
@@ -229,9 +327,10 @@ const WorthifyFormPage = () => {
                             optionsData={cars.Brand}
                             label="Select Brand"
                             value={selectedBrand} // Pass the selected brand
-                            onChange={(event, value) =>
+                            onChange={(event, value) =>{
+                              setSelectedBrand(value)
                               handleChange(event, value, 0)
-                            } // Add onChange handler
+                            }} // Add onChange handler
                           />
                         </div>
                         <div>
@@ -246,9 +345,11 @@ const WorthifyFormPage = () => {
                             optionsData={cars.Model}
                             label="Select Model"
                             value={selectedModel} // Pass the selected model
-                            onChange={(event, value) =>
-                              handleChange(event, value, 1)
-                            } // Add onChange handler
+                            onChange={(event, value) =>{
+                              setSelectedModel(value);
+                              // console.log(selectedModel)
+                              handleChange(event, value, 1);
+                            }} // Add onChange handler
                           />
                         </div>
                         <div>
@@ -265,6 +366,10 @@ const WorthifyFormPage = () => {
                             name="Variant"
                             placeholder="Input Variant"
                             className="brand-dropdown w-select "
+                            onChange={(e) => {
+                              setSelectedVariant(e.target.value); // Update the input's value
+                              console.log(selectedVariant); // Log something when the input changes
+                            }}
                             style={{
                               height: "61px",
                               border: "1px solid white",
@@ -286,9 +391,11 @@ const WorthifyFormPage = () => {
                             key={`grouped-autocomplete-cubic-${resetKey}`}
                             optionsData={cars.Cubic}
                             label="Select Engine"
-                            onChange={(event, value) =>
+                            value={selectedEngine}
+                            onChange={(event, value) =>{
+                              setSelectedEngine(value)
                               handleChange(event, value, 2)
-                            } // Add onChange handler
+                            }} // Add onChange handler
                           />
                         </div>
                         <div>
@@ -302,6 +409,12 @@ const WorthifyFormPage = () => {
                             key={`grouped-autocomplete-date-${resetKey}`}
                             optionsData={carData.Year}
                             label="Select Date"
+                            value={selectedDate}
+                            onChange={(event, value) => {
+                              setSelectedDate(value) // Update the input's value
+                              handleChange(event, value, 20);
+                              console.log(selectedDate); // Log something when the input changes
+                            }}
                             // onChange={(event, value) =>
                             //   handleChange(event, value, 4)
                             // } // Add onChange handler
@@ -318,9 +431,11 @@ const WorthifyFormPage = () => {
                             key={`grouped-autocomplete-category-${resetKey}`}
                             optionsData={cars.Category}
                             label="Select Category"
-                            onChange={(event, value) =>
+                            value={selectedCategory}
+                            onChange={(event, value) =>{
+                              setSelectedCategory(value)
                               handleChange(event, value, 3)
-                            } // Add onChange handler
+                            }} // Add onChange handler
                           />
                         </div>
                         <div>
@@ -334,9 +449,11 @@ const WorthifyFormPage = () => {
                             key={`grouped-autocomplete-fuel-${resetKey}`}
                             optionsData={cars.Fuel}
                             label="Select Fuel"
-                            onChange={(event, value) =>
+                            value={selectedFuel}
+                            onChange={(event, value) =>{
+                              setSelectedFuel(value)
                               handleChange(event, value, 4)
-                            } // Add onChange handler
+                            }} // Add onChange handler
                           />
                         </div>
                         <div>
@@ -350,47 +467,42 @@ const WorthifyFormPage = () => {
                             key={`grouped-autocomplete-transmission-${resetKey}`}
                             optionsData={cars.Transmission}
                             label="Select Transmission"
-                            onChange={(event, value) =>
+                            value={selectedTrans}
+                            onChange={(event, value) =>{
+                              setSelectedTrans(value)
                               handleChange(event, value, 5)
-                            } // Add onChange handler
+                            }} // Add onChange handler
                           />
                         </div>
                         <div>
-                          <label
-                            htmlFor="doors-autocomplete"
-                            className="field-label form-2"
-                          >
-                            Doors
+                          <label htmlFor="HP-autocomplete" className="field-label form-2">
+                            Horsepower
                           </label>
                           <GroupedAutocomplete
-                            key={`grouped-autocomplete-doors-${resetKey}`}
-                            optionsData={cars.Doors}
-                            label="Select Doors"
-                            onChange={(event, value) =>
-                              handleChange(event, value, 6)
-                            } // Add onChange handler
+                            key={`grouped-autocomplete-HP-${resetKey}`}
+                            optionsData={cars.Horsepower}
+                            label="Select Horsepower"
+                            value={selectedHP}
+                            onChange={(event, value) =>{
+                              setSelectedHP(value)
+                              handleChange(event, value, 8)
+                            }} // Add onChange handler
                           />
                         </div>
                         <div>
                           <label htmlFor="color" className="field-label form-2">
                             Color
                           </label>
-                          <input
-                            key={`grouped-autocomplete-color-${resetKey}`}
-                            type="text"
-                            id="color"
-                            name="Color"
-                            placeholder="Input Color"
-                            className="brand-dropdown w-select "
-                            style={{
-                              height: "61px",
-                              border: "1px solid white",
-                              padding: "15px",
-                              borderRadius: "10px",
-                              fontFamily: "Thicccboi",
-                              fontSize: "18px",
-                            }}
-                          ></input>
+                          <GroupedAutocomplete
+                            key={`grouped-autocomplete-colors-${resetKey}`}
+                            optionsData={cars.Color}
+                            label="Select Color"
+                            value={selectedColor}
+                            onChange={(event, value) =>{
+                              setSelectedColor(value)
+                              handleChange(event, value, 7)
+                            }} // Add onChange handler
+                          />
                         </div>
                         <div>
                           <label
@@ -409,6 +521,10 @@ const WorthifyFormPage = () => {
                             name="Mileage"
                             placeholder="Input Mileage"
                             className="brand-dropdown w-select "
+                            onChange={(e) => {
+                              setSelectedMileage(e.target.value); // Update the input's value
+                              console.log(selectedMileage); // Log something when the input changes
+                            }}
                             style={{
                               height: "61px",
                               border: "1px solid white",

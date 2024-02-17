@@ -4,7 +4,7 @@ import Footer from "../Footer";
 import { useNavigate } from "react-router-dom";
 import GroupedAutocomplete from "../Autocomplete";
 
-const array = ["*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*"]; 
+const array = ["*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*"];
 
 const WorthifyHomePage = () => {
   const [cars, setCars] = useState({
@@ -173,9 +173,8 @@ const WorthifyHomePage = () => {
               <div className="info">
                 <h1 className="display-1 small">
                   <strong>
-                    Elevating Automotive Worth
-                    <br />
-                    with Precision and Responsibility.
+                    Elevating Automotive Worth with Precision and
+                    Responsibility.
                   </strong>
                 </h1>
                 <h1 className="display-1-copy small">
@@ -198,8 +197,8 @@ const WorthifyHomePage = () => {
                   }}
                   className="paragraph-large home-hero small"
                 >
-                  Fill out our simple form with your car's specifications <br />{" "}
-                  and let Worthify reveal its true market worth.
+                  Fill out our simple form with your car's specifications and
+                  let Worthify reveal its true market worth.
                 </p>
               </div>
               <div
@@ -544,9 +543,7 @@ const WorthifyHomePage = () => {
             >
               <div className="card-team-page-careers-content">
                 <h3 className="title card-team-page-careers centered">
-                  Interested in knowing more
-                  <br />
-                  about our vision?
+                  Interested in knowing more about our vision?
                 </h3>
                 <p className="paragraph card-team-page-careers centered">
                   Meet the dedicated team, explore our mission, and see
