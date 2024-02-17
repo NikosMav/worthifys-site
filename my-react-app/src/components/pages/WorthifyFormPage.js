@@ -7,9 +7,9 @@ import DescriptionInput from "../DescriptionInput";
 import carData from "../../carData.json";
 import { useLocation } from "react-router-dom";
 // import { colors } from "@mui/material";
-import colors from "../charts/data/colors.json"
+import colors from "../charts/data/colors.json";
 //             brand,model,displ,cat,fuel,trans,doors,color,hp,merchant,seats
-const array = ["*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*"]; 
+const array = ["*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*"];
 
 const WorthifyFormPage = () => {
   // Hook to access the current location
@@ -72,10 +72,9 @@ const WorthifyFormPage = () => {
 
         const data = await response.json();
         // console.log(data)
-        console.log("AY YO")
+        console.log("AY YO");
         // console.log(data)
         setCars(data);
-
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -101,26 +100,26 @@ const WorthifyFormPage = () => {
     } else if (i === 1) {
       // Model
       setSelectedModel(value.title);
-    } else if (i === 2){
+    } else if (i === 2) {
       // Engine
       setSelectedEngine(value.title);
-    } else if (i === 3){
+    } else if (i === 3) {
       // Category
       setSelectedCategory(value.title);
-    } else if (i === 4){
+    } else if (i === 4) {
       // Fuel
       setSelectedFuel(value.title);
-    } else if (i === 5){
+    } else if (i === 5) {
       // Transmission
       setSelectedTrans(value.title);
-    } else if (i === 7){
+    } else if (i === 7) {
       // Color
       setSelectedColor(value.title);
       return; // let's not destroy our options with the colors
-    } else if (i === 8){
+    } else if (i === 8) {
       // HP
       setSelectedHP(value.title);
-    } else if (i === 20){
+    } else if (i === 20) {
       // Date
       setSelectedDate(value.title);
       return;
@@ -151,7 +150,7 @@ const WorthifyFormPage = () => {
     };
     fetchData();
     // cars.colors = colors;
-    console.log(cars)
+    console.log(cars);
     console.log(cars.Horsepower);
     console.log(cars.Cubic);
   };
@@ -162,19 +161,19 @@ const WorthifyFormPage = () => {
   const handleClearForm = () => {
     // This will force the form or components with this key to re-render
     setResetKey((prevKey) => prevKey + 1);
-    setSelectedBrand("")
-    setSelectedModel("")
-    setSelectedVariant("")
-    setSelectedEngine("")
-    setSelectedDate("")
-    setSelectedCategory("")
-    setSelectedFuel("")
-    setSelectedTrans("")
-    setSelectedHP("")
-    setSelectedColor("")
-    setSelectedMileage("")
-    setSelectedPostal("")
-    setSelectedDesc("")
+    setSelectedBrand("");
+    setSelectedModel("");
+    setSelectedVariant("");
+    setSelectedEngine("");
+    setSelectedDate("");
+    setSelectedCategory("");
+    setSelectedFuel("");
+    setSelectedTrans("");
+    setSelectedHP("");
+    setSelectedColor("");
+    setSelectedMileage("");
+    setSelectedPostal("");
+    setSelectedDesc("");
     for (const i in array) {
       array[i] = "*";
     }
@@ -222,7 +221,7 @@ const WorthifyFormPage = () => {
           }
         );
         const data = await response.json();
-        console.log(data)
+        console.log(data);
         // setCars(data);
         // console.log(cars.Cubic);
       } catch (error) {
@@ -311,8 +310,8 @@ const WorthifyFormPage = () => {
                         className="card-contact-form form-2"
                         data-wf-page-id="65a4292a06a5231e6e3e7670"
                         data-wf-element-id="13235370-6615-b8f7-1966-ee3fe42ff50b"
-                        onSubmit={(event) =>{
-                          handleSubmission(event)
+                        onSubmit={(event) => {
+                          handleSubmission(event);
                         }}
                       >
                         <div>
@@ -327,9 +326,9 @@ const WorthifyFormPage = () => {
                             optionsData={cars.Brand}
                             label="Select Brand"
                             value={selectedBrand} // Pass the selected brand
-                            onChange={(event, value) =>{
-                              setSelectedBrand(value)
-                              handleChange(event, value, 0)
+                            onChange={(event, value) => {
+                              setSelectedBrand(value);
+                              handleChange(event, value, 0);
                             }} // Add onChange handler
                           />
                         </div>
@@ -345,7 +344,7 @@ const WorthifyFormPage = () => {
                             optionsData={cars.Model}
                             label="Select Model"
                             value={selectedModel} // Pass the selected model
-                            onChange={(event, value) =>{
+                            onChange={(event, value) => {
                               setSelectedModel(value);
                               // console.log(selectedModel)
                               handleChange(event, value, 1);
@@ -392,9 +391,9 @@ const WorthifyFormPage = () => {
                             optionsData={cars.Cubic}
                             label="Select Engine"
                             value={selectedEngine}
-                            onChange={(event, value) =>{
-                              setSelectedEngine(value)
-                              handleChange(event, value, 2)
+                            onChange={(event, value) => {
+                              setSelectedEngine(value);
+                              handleChange(event, value, 2);
                             }} // Add onChange handler
                           />
                         </div>
@@ -411,7 +410,7 @@ const WorthifyFormPage = () => {
                             label="Select Date"
                             value={selectedDate}
                             onChange={(event, value) => {
-                              setSelectedDate(value) // Update the input's value
+                              setSelectedDate(value); // Update the input's value
                               handleChange(event, value, 20);
                               console.log(selectedDate); // Log something when the input changes
                             }}
@@ -432,9 +431,9 @@ const WorthifyFormPage = () => {
                             optionsData={cars.Category}
                             label="Select Category"
                             value={selectedCategory}
-                            onChange={(event, value) =>{
-                              setSelectedCategory(value)
-                              handleChange(event, value, 3)
+                            onChange={(event, value) => {
+                              setSelectedCategory(value);
+                              handleChange(event, value, 3);
                             }} // Add onChange handler
                           />
                         </div>
@@ -450,9 +449,9 @@ const WorthifyFormPage = () => {
                             optionsData={cars.Fuel}
                             label="Select Fuel"
                             value={selectedFuel}
-                            onChange={(event, value) =>{
-                              setSelectedFuel(value)
-                              handleChange(event, value, 4)
+                            onChange={(event, value) => {
+                              setSelectedFuel(value);
+                              handleChange(event, value, 4);
                             }} // Add onChange handler
                           />
                         </div>
@@ -468,14 +467,17 @@ const WorthifyFormPage = () => {
                             optionsData={cars.Transmission}
                             label="Select Transmission"
                             value={selectedTrans}
-                            onChange={(event, value) =>{
-                              setSelectedTrans(value)
-                              handleChange(event, value, 5)
+                            onChange={(event, value) => {
+                              setSelectedTrans(value);
+                              handleChange(event, value, 5);
                             }} // Add onChange handler
                           />
                         </div>
                         <div>
-                          <label htmlFor="HP-autocomplete" className="field-label form-2">
+                          <label
+                            htmlFor="HP-autocomplete"
+                            className="field-label form-2"
+                          >
                             Horsepower
                           </label>
                           <GroupedAutocomplete
@@ -483,9 +485,9 @@ const WorthifyFormPage = () => {
                             optionsData={cars.Horsepower}
                             label="Select Horsepower"
                             value={selectedHP}
-                            onChange={(event, value) =>{
-                              setSelectedHP(value)
-                              handleChange(event, value, 8)
+                            onChange={(event, value) => {
+                              setSelectedHP(value);
+                              handleChange(event, value, 8);
                             }} // Add onChange handler
                           />
                         </div>
@@ -498,9 +500,9 @@ const WorthifyFormPage = () => {
                             optionsData={colors.colors}
                             label="Select Color"
                             value={selectedColor}
-                            onChange={(event, value) =>{
-                              setSelectedColor(value)
-                              handleChange(event, value, 7)
+                            onChange={(event, value) => {
+                              setSelectedColor(value);
+                              handleChange(event, value, 7);
                             }} // Add onChange handler
                           />
                         </div>
