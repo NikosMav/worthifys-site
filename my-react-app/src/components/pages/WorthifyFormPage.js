@@ -6,8 +6,8 @@ import PostalCodeField from "../PostalCodeField";
 import DescriptionInput from "../DescriptionInput";
 import carData from "../../carData.json";
 import { useLocation } from "react-router-dom";
-import { colors } from "@mui/material";
-
+// import { colors } from "@mui/material";
+import colors from "../charts/data/colors.json"
 //             brand,model,displ,cat,fuel,trans,doors,color,hp,merchant,seats
 const array = ["*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*"]; 
 
@@ -127,7 +127,7 @@ const WorthifyFormPage = () => {
     }
 
     //let's keep the color options
-    colors = cars.colors
+    // colors = cars.colors
 
     // console.log(array)
     const fetchData = async () => {
@@ -150,7 +150,7 @@ const WorthifyFormPage = () => {
       }
     };
     fetchData();
-    cars.colors = colors;
+    // cars.colors = colors;
     console.log(cars)
     console.log(cars.Horsepower);
     console.log(cars.Cubic);
@@ -311,7 +311,7 @@ const WorthifyFormPage = () => {
                         className="card-contact-form form-2"
                         data-wf-page-id="65a4292a06a5231e6e3e7670"
                         data-wf-element-id="13235370-6615-b8f7-1966-ee3fe42ff50b"
-                        onSubmit={(event, value) =>{
+                        onSubmit={(event) =>{
                           handleSubmission(event)
                         }}
                       >
@@ -495,7 +495,7 @@ const WorthifyFormPage = () => {
                           </label>
                           <GroupedAutocomplete
                             key={`grouped-autocomplete-colors-${resetKey}`}
-                            optionsData={cars.Color}
+                            optionsData={colors.colors}
                             label="Select Color"
                             value={selectedColor}
                             onChange={(event, value) =>{
