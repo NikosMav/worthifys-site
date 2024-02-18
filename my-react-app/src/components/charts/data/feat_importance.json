@@ -1,12 +1,11 @@
 {
-    "CarYear": 3843.708522,
-    "Variance": 2685.627461,
-    "Horsepower": 1226.760001,
-    "Model": 1168.344977,
-    "Kilometers": 598.577391,
-    "Cubic (CC)": 480.00,
-    "Transmission": 360.00,
-    "Width": 240.00,
-    "Length": 120.00,
-    "Fuel_3": 80.00
+    "CarYear": 2363.696290,
+    "Variance": 2212.886077,
+    "Model": 1157.490313,
+    "Horsepower": 1095.783243,
+    "CarAge": 647.165035,
+    "Kilometers": 498.657677,
+    "Cubic": 179.923142,
+    "Cluster": 126.800360,
+    "Fuel_Petrol": 54.028984
 }

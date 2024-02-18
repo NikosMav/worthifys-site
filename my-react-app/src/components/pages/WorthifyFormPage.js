@@ -621,7 +621,7 @@ const WorthifyFormPage = () => {
                             htmlFor="zipcode"
                             className="field-label form-2"
                           >
-                            Location
+                            Search Location
                           </label>
                           <PostalCodeField
                             key={`grouped-autocomplete-postalcode-${resetKey}`}
@@ -696,7 +696,7 @@ const WorthifyFormPage = () => {
                           </p>
                         )}
                       </Modal>
-                      <div className="success-message w-form-done">
+                      {/* <div className="success-message w-form-done">
                         <div>
                           Your message has been submitted. <br />
                           We will get back to you within 24-48 hours.
@@ -704,7 +704,7 @@ const WorthifyFormPage = () => {
                       </div>
                       <div className="error-message w-form-fail">
                         <div>Oops! Something went wrong.</div>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                   <div className="card-contact-form-gradient-blur" />

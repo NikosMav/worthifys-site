@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import ForecastingLineChart from "../charts/ForecastingLineChart";
+import ForecastingLineChart2 from "../charts/ForecastingLineChart2";
 
 const WorthifyForecastingPage = () => {
   // webflow.js
@@ -341,7 +342,7 @@ const WorthifyForecastingPage = () => {
             <div className="forecast-line-chart-div">
               {activeItem === "opel-corsa" && (
                 <div className="additional-content">
-                  <p>Price Forecasting Chart</p>
+                  <p>Opel Corsa 2016</p>
                   <div
                     style={{
                       height: "2px",
@@ -351,13 +352,45 @@ const WorthifyForecastingPage = () => {
                       marginBottom: "15px",
                     }}
                   ></div>
-                  <h2 className="title blog-2">Opel Corsa 2016</h2>
+                  <h2 className="title blog-2">Time Series Validation Chart</h2>
+                  <ForecastingLineChart />
+                </div>
+              )}
+              {activeItem === "opel-corsa" && (
+                <div className="additional-content">
+                  <p>Opel Corsa 2016</p>
+                  <div
+                    style={{
+                      height: "2px",
+                      backgroundColor: "#333",
+                      width: "12%",
+                      marginTop: "-10px",
+                      marginBottom: "15px",
+                    }}
+                  ></div>
+                  <h2 className="title blog-2">Price Forecasting Chart</h2>
+                  <ForecastingLineChart2 />
+                </div>
+              )}
+              {activeItem === "toyota-yaris" && (
+                <div className="additional-content">
+                  <p>Toyota Yaris 2016</p>
+                  <div
+                    style={{
+                      height: "2px",
+                      backgroundColor: "#333",
+                      width: "12%",
+                      marginTop: "-10px",
+                      marginBottom: "15px",
+                    }}
+                  ></div>
+                  <h2 className="title blog-2">Time Series Validation Chart</h2>
                   <ForecastingLineChart />
                 </div>
               )}
               {activeItem === "toyota-yaris" && (
                 <div className="additional-content">
-                  <p>Price Forecasting Chart</p>
+                  <p>Toyota Yaris 2016</p>
                   <div
                     style={{
                       height: "2px",
@@ -367,8 +400,8 @@ const WorthifyForecastingPage = () => {
                       marginBottom: "15px",
                     }}
                   ></div>
-                  <h2 className="title blog-2">Toyota Yaris 2016</h2>
-                  <ForecastingLineChart />
+                  <h2 className="title blog-2">Price Forecasting Chart</h2>
+                  <ForecastingLineChart2 />
                 </div>
               )}
             </div>

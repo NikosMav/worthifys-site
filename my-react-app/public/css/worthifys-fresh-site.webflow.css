@@ -4375,8 +4375,9 @@ figcaption {
   border-radius: 10000px;
   padding: 2px;
   transition: transform .3s;
-  display: flex;
-  justify-content: center;
+  display: inline-block;
+  /* display: flex;
+  justify-content: center; */
   transform: scale3d(1, 1, 1.01);
   box-shadow: 0 3px 7px rgba(19, 17, 26, .14);
 }
