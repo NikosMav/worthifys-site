@@ -176,7 +176,7 @@ const WorthifyFormPage = () => {
 
   const handleClearForm = () => {
     // This will force the form or components with this key to re-render
-    setResetKey((prevKey) => prevKey + 1);
+    // setResetKey((prevKey) => prevKey + 1);
     setSelectedBrand("");
     setSelectedModel("");
     setSelectedVariant("");
